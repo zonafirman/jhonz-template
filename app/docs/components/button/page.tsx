@@ -34,8 +34,13 @@ const pageHeadings = [
   { title: 'Dock Effect', slug: 'dock-effect', level: 2 },
   { title: 'Cyberpunk', slug: 'cyberpunk', level: 2 },
   { title: 'AI Action Button', slug: 'ai-action', level: 2 },
+  { title: 'Retro Shadow', slug: 'retro-shadow', level: 2 },
+  { title: '3D Flip', slug: '3d-flip', level: 2 },
+  { title: 'Draw-in Border', slug: 'draw-in-border', level: 2 },
+  { title: 'Gradient Follow', slug: 'gradient-follow', level: 2 },
 ];
 const aiActionButtonId = 'ai-action';
+const retroShadowButtonId = 'retro-shadow';
 
 const bubblyButtonCode = `<button class="bubbly-button relative rounded-lg bg-rose-500 px-6 py-3 font-semibold text-white transition-transform duration-200 ease-in-out active:scale-95">  Bubbly Me!</button><!-- Add this CSS to your global stylesheet:@keyframes bubbly-animation {  0% {    transform: scale(1);    opacity: 1;  }  100% {    transform: scale(2.5);    opacity: 0;  }}.bubbly-button::before {  content: '';  position: absolute;  top: 0;  left: 0;  width: 100%;  height: 100%;  background-color: white;  border-radius: inherit;  opacity: 0;  transform: scale(1);}.bubbly-button:active::before {  animation: bubbly-animation 0.4s ease-out;  opacity: 0.2;}-->`;
 
@@ -428,6 +433,57 @@ const aiActionButtonCode = `
 </button>
 `;
 
+const retroShadowButtonCode = `<button class="rounded-lg border-2 border-slate-900 bg-white px-6 py-3 font-bold text-slate-900 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_#0f172a] dark:bg-slate-900 dark:text-white dark:hover:shadow-[6px_6px_0px_#cbd5e1]">
+  Retro Shadow
+</button>
+`;
+
+const flipButtonCode = `<button class="group h-12 w-32 rounded-lg bg-slate-900 text-white [transform-style:preserve-3d] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]">
+  <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-blue-600">
+    Hover Me
+  </div>
+  <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-rose-600 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+    </svg>
+  </div>
+</button>
+`;
+
+const drawInBorderButtonCode = `<!-- Add this CSS to your global stylesheet:
+.draw-border-btn rect {
+  stroke-dasharray: 420; /* Approx. perimeter for h-12 w-40 */
+  stroke-dashoffset: 420;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.draw-border-btn:hover rect {
+  stroke-dashoffset: 0;
+}
+-->
+<button class="draw-border-btn group relative h-12 w-40 rounded-lg bg-slate-900 text-white">
+  <svg class="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg"><rect class="h-full w-full stroke-2 stroke-current" fill="none" rx="8" ry="8" /></svg>
+  <span class="relative">Draw Border</span>
+</button>`;
+
+const gradientFollowButtonCode = `<button class="gradient-follow-btn relative rounded-lg border border-slate-800 bg-slate-900 px-8 py-4 text-lg font-bold text-white">
+  <span class="relative z-10">Follow Me</span>
+  <span class="pointer-events-none absolute -inset-px rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" style="background: radial-gradient(300px circle at var(--x) var(--y), #818cf8, transparent 40%);"></span>
+</button>
+
+<!-- Script to handle the gradient follow effect -->
+<script>
+  document.querySelectorAll('.gradient-follow-btn').forEach(button => {
+    button.addEventListener('mousemove', (e) => {
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      button.style.setProperty('--x', \`\${x}px\`);
+      button.style.setProperty('--y', \`\${y}px\`);
+    });
+  });
+</script>`;
+
+
 export default function ButtonsPage() {
   const handleWaveClick = (e: MouseEvent<HTMLButtonElement>) => {
     const button = e.currentTarget;
@@ -494,6 +550,16 @@ export default function ButtonsPage() {
   };
 
   const handleShimmerMove = (e: MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    button.style.setProperty('--x', `${x}px`);
+    button.style.setProperty('--y', `${y}px`);
+  };
+
+  const handleGradientFollowMove = (e: MouseEvent<HTMLButtonElement>) => {
     const button = e.currentTarget;
     const rect = button.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -1320,6 +1386,91 @@ export default function ButtonsPage() {
             </button>
           </div>
         </CodePreview>
+
+        {/* Retro Shadow Button */}
+        <h2
+          id={retroShadowButtonId}
+          className="mt-12 scroll-mt-20 text-3xl font-bold"
+        >
+          Retro Shadow
+        </h2>
+        <p className="mt-4 text-slate-600">
+          The &quot;Retro Shadow&quot; button combines a classic look with a modern twist. On hover, the button shifts to reveal a solid shadow, creating a satisfying and tactile effect. This style is perfect for adding a touch of personality and clear interactive feedback to your calls-to-action.
+        </p>
+        <CodePreview code={retroShadowButtonCode}>
+          <div className="flex w-full items-center justify-center gap-4 rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
+            <button className="rounded-lg border-2 border-slate-900 bg-white px-6 py-3 font-bold text-slate-900 transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_#0f172a] dark:bg-slate-900 dark:text-white dark:hover:shadow-[6px_6px_0px_#cbd5e1]">
+              Retro Shadow
+            </button>
+          </div>
+        </CodePreview>
+
+        {/* 3D Flip Button */}
+        <h2
+          id="3d-flip"
+          className="mt-12 scroll-mt-20 text-3xl font-bold"
+        >
+          3D Flip
+        </h2>
+        <p className="mt-4 text-slate-600">
+          The &quot;3D Flip&quot; button offers a delightful interactive experience by flipping on its Y-axis when hovered. This reveals a different content on its back side, perfect for showing a confirmation icon or a secondary action. The effect is achieved using CSS 3D transforms.
+        </p>
+        <CodePreview code={flipButtonCode}>
+          <div className="flex w-full items-center justify-center gap-4 rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
+            <button className="group h-12 w-32 rounded-lg bg-slate-900 text-white [transform-style:preserve-3d] transition-transform duration-500 hover:[transform:rotateY(180deg)]">
+              <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-blue-600">
+                Hover Me
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-rose-600 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-6 w-6"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+              </div>
+            </button>
+          </div>
+        </CodePreview>
+
+        {/* Draw-in Border Button */}
+        <h2
+          id="draw-in-border"
+          className="mt-12 scroll-mt-20 text-3xl font-bold"
+        >
+          Draw-in Border
+        </h2>
+        <p className="mt-4 text-slate-600">
+          The &quot;Draw-in Border&quot; button creates an elegant hover effect where the border appears to be drawn around the button. This is achieved using an SVG `rect` element and animating its `stroke-dashoffset` property with CSS, providing a clean and sophisticated animation.
+        </p>
+        <CodePreview code={drawInBorderButtonCode}>
+          <div className="flex w-full items-center justify-center gap-4 rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
+            <button className="draw-border-btn group relative h-12 w-40 rounded-lg bg-slate-900 text-white">
+              <svg className="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">
+                <rect className="h-full w-full stroke-2 stroke-current" fill="none" rx="8" ry="8" />
+              </svg>
+              <span className="relative">Draw Border</span>
+            </button>
+          </div>
+        </CodePreview>
+
+        {/* Gradient Follow Button */}
+        <h2
+          id="gradient-follow"
+          className="mt-12 scroll-mt-20 text-3xl font-bold"
+        >
+          Gradient Follow
+        </h2>
+        <p className="mt-4 text-slate-600">
+          Tombol &quot;Gradient Follow&quot; menciptakan efek cahaya interaktif yang mengikuti kursor pengguna saat melayang di atas tombol. Efek ini menggunakan gradien radial yang posisinya diperbarui melalui JavaScript, memberikan nuansa premium dan dinamis pada antarmuka Anda.
+        </p>
+        <CodePreview code={gradientFollowButtonCode}>
+          <div className="flex w-full items-center justify-center gap-4 rounded-lg bg-slate-950 p-12">
+            <button
+              className="gradient-follow-btn group relative rounded-lg border border-slate-800 bg-slate-900 px-8 py-4 text-lg font-bold text-white"
+              onMouseMove={handleGradientFollowMove}
+            >
+              <span className="relative z-10">Follow Me</span>
+              <span className="pointer-events-none absolute -inset-px rounded-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100" style={{ background: 'radial-gradient(300px circle at var(--x) var(--y), #818cf8, transparent 40%)' }} />
+            </button>
+          </div>
+        </CodePreview>
+
       </article>
 
       <RightSidebar headings={pageHeadings} />
