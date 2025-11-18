@@ -20,11 +20,16 @@ const config: Config = {
       animation: {
         'spin-slow': 'spin 20s linear infinite',
         'spin-fast': 'spin 2s linear infinite',
+        scroll: 'scroll 40s linear infinite',
       },
       keyframes: {
         spin: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
+        },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
     },
