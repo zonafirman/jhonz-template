@@ -438,11 +438,11 @@ const retroShadowButtonCode = `<button class="rounded-lg border-2 border-slate-9
 </button>
 `;
 
-const flipButtonCode = `<button class="group h-12 w-32 rounded-lg bg-slate-900 text-white [transform-style:preserve-3d] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]">
+const flipButtonCode = `<button class="group h-12 w-32 rounded-lg bg-slate-900 text-white transform-3d transition-transform duration-500 group-hover:transform-[rotateY(180deg)]">
   <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-blue-600">
     Hover Me
   </div>
-  <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-rose-600 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+  <div class="absolute inset-0 flex items-center justify-center rounded-lg bg-rose-600 transform-[rotateY(180deg)] backface-hidden">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-6 w-6">
       <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
     </svg>
@@ -1417,11 +1417,11 @@ export default function ButtonsPage() {
         </p>
         <CodePreview code={flipButtonCode}>
           <div className="flex w-full items-center justify-center gap-4 rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
-            <button className="group h-12 w-32 rounded-lg bg-slate-900 text-white [transform-style:preserve-3d] transition-transform duration-500 hover:[transform:rotateY(180deg)]">
+            <button className="group h-12 w-32 rounded-lg bg-slate-900 text-white transform-3d transition-transform duration-500 hover:transform-[rotateY(180deg)]">
               <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-blue-600">
                 Hover Me
               </div>
-              <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-rose-600 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+              <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-rose-600 transform-[rotateY(180deg)] backface-hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="h-6 w-6"><path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
               </div>
             </button>

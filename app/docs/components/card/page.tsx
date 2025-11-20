@@ -25,6 +25,13 @@ const pageHeadings = [
   { title: 'Infinite Carousel', slug: 'infinite-carousel', level: 2 },
   { title: 'Glowing Border Card', slug: 'glowing-border-card', level: 2 },
   { title: 'Gradient Border Card', slug: 'gradient-border-card', level: 2 },
+  { title: 'Evervault Card', slug: 'evervault-card', level: 2 },
+  { title: 'Meteoric Card', slug: 'meteoric-card', level: 2 },
+  { title: 'Docking Cards Layout', slug: 'docking-cards-layout', level: 2 },
+  { title: 'Parallax Hover Cards', slug: 'parallax-hover-cards', level: 2 },
+  { title: '3D Flipping Card', slug: '3d-flipping-card', level: 2 },
+  { title: 'Reveal Card', slug: 'reveal-card', level: 2 },
+  { title: 'Stacked Deck Layout', slug: 'stacked-deck-layout', level: 2 },
 ];
 
 const simpleCardCode = `<div class="max-w-sm rounded-lg border border-slate-200 bg-white p-6 shadow-md dark:border-slate-800 dark:bg-slate-900">
@@ -178,7 +185,7 @@ const bentoGridCode = `<div class="grid w-full max-w-4xl grid-cols-1 gap-4 md:gr
 
 const auroraCardCode = `<div class="aurora-card group relative max-w-sm overflow-hidden rounded-lg bg-slate-900 p-6 shadow-lg">
   <div class="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-    <div class="absolute inset-0 animate-[aurora_8s_linear_infinite] bg-[radial-gradient(ellipse_at_top_left,_var(--aurora-color-1),_transparent_50%),radial-gradient(ellipse_at_top_right,_var(--aurora-color-2),_transparent_50%),radial-gradient(ellipse_at_bottom_left,_var(--aurora-color-3),_transparent_50%)]"></div>
+    <div class="absolute inset-0 animate-[aurora_8s_linear_infinite] bg-[radial-gradient(ellipse_at_top_left,var(--aurora-color-1),transparent_50%),radial-gradient(ellipse_at_top_right,var(--aurora-color-2),transparent_50%),radial-gradient(ellipse_at_bottom_left,var(--aurora-color-3),transparent_50%)]"></div>
   </div>
   <div class="relative z-10">
     <h3 class="text-xl font-bold text-white">Aurora Card</h3>
@@ -194,7 +201,7 @@ const auroraCardCode = `<div class="aurora-card group relative max-w-sm overflow
 
 const expandingDetailsCardCode = `<div class="group relative h-80 w-64 overflow-hidden rounded-xl bg-slate-800 shadow-lg">
   <img src="https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?q=80&w=687" alt="Abstract Art" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" />
-  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+  <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-transparent"></div>
   <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
     <h3 class="text-2xl font-bold">Vibrant Strokes</h3>
     <div class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-40">
@@ -293,12 +300,156 @@ const glowingBorderCardCode = `<div class="glowing-border-card group relative ma
 </script>`;
 
 const gradientBorderCardCode = `<div class="relative max-w-sm rounded-xl border border-slate-200 bg-white p-1 shadow-md transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-300/20 dark:border-slate-800 dark:bg-slate-900 dark:hover:shadow-slate-700/20">
-  <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+  <div class="absolute inset-0 rounded-xl bg-linear-to-r from-purple-500 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
   <div class="relative rounded-lg bg-white p-6 dark:bg-slate-900">
     <h3 class="text-xl font-bold text-slate-900 dark:text-white">Gradient Border Card</h3>
     <p class="mt-2 text-slate-600 dark:text-slate-400">
       This card reveals a soft gradient border on hover, adding a professional and modern touch to your UI.
     </p>
+  </div>
+</div>`;
+
+const evervaultCardCode = `<div class="evervault-card group relative max-w-sm overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-px">
+  <div class="pointer-events-none absolute -inset-px transition duration-300" style="background: radial-gradient(600px circle at var(--x) var(--y), rgba(255, 255, 255, 0.1), transparent 40%);"></div>
+  <div class="relative rounded-xl bg-slate-900/95 p-6">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke-width="2" stroke="rgb(30 41 59 / 0.5)"%3e%3cpath d="M0 .5H31.5V32"/%3e%3c/svg%3e'); mask-image: radial-gradient(transparent, black 50%); -webkit-mask-image: radial-gradient(transparent, black 50%);"></div>
+    <h3 class="text-xl font-bold text-white">Evervault Card</h3>
+    <p class="mt-2 text-slate-400">
+      A modern card with a background pattern that animates on cursor move.
+    </p>
+  </div>
+</div>
+
+<!-- Script to handle the effect -->
+<script>
+  document.querySelectorAll('.evervault-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--x', e.clientX - rect.left + 'px');
+      card.style.setProperty('--y', e.clientY - rect.top + 'px');
+    });
+  });
+</script>`;
+
+const meteoricCardCode = `<!-- Add this animation to your global CSS:
+@keyframes meteor-effect {
+  0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+}
+-->
+<div class="relative max-w-sm overflow-hidden rounded-lg bg-slate-900 p-6 shadow-lg">
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Meteors -->
+    <span class="absolute top-0 left-1/2 h-80 w-0.5 -translate-x-1/2 rotate-215 animate-[meteor-effect_3s_linear_infinite] bg-linear-to-b from-slate-400/40 to-transparent"></span>
+    <span class="absolute top-0 left-1/3 h-60 w-0.5 -translate-x-1/2 rotate-215 animate-[meteor-effect_4s_linear_2s_infinite] bg-linear-to-b from-slate-400/40 to-transparent"></span>
+    <span class="absolute top-0 left-2/3 h-72 w-px -translate-x-1/2 rotate-215 animate-[meteor-effect_5s_linear_1s_infinite] bg-linear-to-b from-slate-400/40 to-transparent"></span>
+  </div>
+  <div class="relative z-10">
+    <h3 class="text-xl font-bold text-white">Meteoric Card</h3>
+    <p class="mt-2 text-slate-300">A card with animated meteors streaking across the background.</p>
+  </div>
+</div>`;
+
+const dockingCardsCode = `<div class="group/dock w-full max-w-md">
+  <div class="flex h-16 items-end justify-center gap-3 rounded-2xl bg-slate-900 p-4 transition-all duration-300 ease-in-out group-hover/dock:h-48">
+    
+    <div class="group/card relative aspect-square w-12 cursor-pointer rounded-xl bg-slate-700 transition-all duration-300 ease-in-out hover:w-24!">
+      <div class="absolute inset-x-0 -bottom-12 flex justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100">
+        <span class="text-sm text-slate-400">Home</span>
+      </div>
+    </div>
+
+    <div class="group/card relative aspect-square w-12 cursor-pointer rounded-xl bg-slate-700 transition-all duration-300 ease-in-out hover:w-24!">
+      <div class="absolute inset-x-0 -bottom-12 flex justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100">
+        <span class="text-sm text-slate-400">Music</span>
+      </div>
+    </div>
+
+    <div class="group/card relative aspect-square w-12 cursor-pointer rounded-xl bg-slate-700 transition-all duration-300 ease-in-out hover:w-24!">
+      <div class="absolute inset-x-0 -bottom-12 flex justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100">
+        <span class="text-sm text-slate-400">Apps</span>
+      </div>
+    </div>
+
+  </div>
+</div>`;
+
+const parallaxHoverCardsCode = `<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <div class="group relative h-72 w-full cursor-pointer overflow-hidden rounded-xl shadow-lg">
+    <div class="absolute inset-0 z-10 bg-linear-to-t from-black/70 via-black/40 to-transparent"></div>
+    <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" alt="Workspace">
+    <div class="relative z-20 flex h-full flex-col justify-end p-6 text-white">
+      <h3 class="text-2xl font-bold">Creative Workspace</h3>
+      <p class="mt-2 text-sm opacity-80">A space designed for focus and creativity.</p>
+    </div>
+  </div>
+  <div class="group relative h-72 w-full cursor-pointer overflow-hidden rounded-xl shadow-lg">
+    <div class="absolute inset-0 z-10 bg-linear-to-t from-black/70 via-black/40 to-transparent"></div>
+    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" alt="Laptop with code">
+    <div class="relative z-20 flex h-full flex-col justify-end p-6 text-white">
+      <h3 class="text-2xl font-bold">Modern Development</h3>
+      <p class="mt-2 text-sm opacity-80">Building the future, one line of code at a time.</p>
+    </div>
+  </div>
+</div>`;
+
+const flippingCardCode = `<div class="group h-72 w-56 cursor-pointer perspective-[1000px]">
+  <div class="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 transform-3d group-hover:transform-[rotateY(180deg)]">
+    {/* Front Side */}
+    <div class="absolute inset-0">
+      <img class="h-full w-full rounded-xl object-cover shadow-xl shadow-black/40" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687" alt="Profile Picture">
+    </div>
+    {/* Back Side */}
+    <div class="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-12 text-center text-slate-200 transform-[rotateY(180deg)] backface-hidden">
+      <div class="flex min-h-full flex-col items-center justify-center">
+        <h3 class="text-2xl font-bold">John Doe</h3>
+        <p class="text-lg">Software Engineer</p>
+        <p class="mt-2 text-sm">Building innovative solutions for the web.</p>
+        <button class="mt-4 rounded-md bg-indigo-600 px-3 py-1 text-sm font-semibold text-white hover:bg-indigo-700">
+          Contact
+        </button>
+      </div>
+    </div>
+  </div>
+</div>`;
+
+const revealCardCode = `<div class="group relative h-80 w-64 cursor-pointer overflow-hidden rounded-xl shadow-lg">
+  <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=799" alt="Product" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+  <div class="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
+  <div class="absolute inset-0 flex translate-y-[60%] flex-col justify-center p-6 text-white transition-transform duration-500 group-hover:translate-y-0">
+    <h3 class="text-2xl font-bold">Sleek Watch</h3>
+    <div class="pt-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <p class="text-sm">
+        A perfect blend of classic design and modern technology.
+      </p>
+      <button class="mt-4 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>`;
+
+const stackedDeckCardCode = `<div class="group relative h-64 w-full max-w-sm cursor-pointer">
+  {/* Card 3 (Bottom) */}
+  <div class="absolute inset-0 rounded-xl bg-slate-700 p-6 text-white shadow-lg transition-transform duration-500 ease-in-out group-hover:-translate-y-4 group-hover:rotate-6">
+    <h3 class="text-xl font-bold">Step 3: Launch</h3>
+    <p class="mt-2 text-sm">Deploy the application to production and monitor its performance.</p>
+  </div>
+
+  {/* Card 2 (Middle) */}
+  <div class="absolute inset-0 rounded-xl bg-slate-800 p-6 text-white shadow-lg transition-transform duration-500 ease-in-out group-hover:-translate-y-2 group-hover:rotate-2">
+    <h3 class="text-xl font-bold">Step 2: Develop</h3>
+    <p class="mt-2 text-sm">Build the features with clean and efficient code.</p>
+  </div>
+
+  {/* Card 1 (Top) */}
+  <div class="absolute inset-0 rounded-xl bg-slate-900 p-6 text-white shadow-lg transition-transform duration-500 ease-in-out group-hover:-rotate-2">
+    <div class="flex items-center justify-between">
+      <h3 class="text-xl font-bold">Step 1: Plan</h3>
+      <span class="text-xs text-slate-400">HOVER ME</span>
+    </div>
+    <p class="mt-2 text-sm">Define the project scope, goals, and requirements.</p>
   </div>
 </div>`;
 
@@ -376,8 +527,8 @@ export default function CardsPage() {
   const handleAuroraMove = (e: MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    e.clientX - rect.left;
+    e.clientY - rect.top;
 
     card.style.setProperty('--aurora-color-1', 'rgba(99, 102, 241, 0.3)');
     card.style.setProperty('--aurora-color-2', 'rgba(168, 85, 247, 0.3)');
@@ -419,6 +570,16 @@ export default function CardsPage() {
     card.style.setProperty('--x', `${x}px`);
     card.style.setProperty('--y', `${y}px`);
   };
+
+  const handleEvervaultCardMove = (e: MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
+  };
   return (
     <div className="flex w-full">
       <article className="min-w-0 flex-1 pe-8">
@@ -435,15 +596,15 @@ export default function CardsPage() {
         </h1>
 
         <p className="mt-4 text-slate-600">
-          Kartu adalah wadah konten yang fleksibel dan dapat diperluas. Mereka mencakup opsi untuk header dan footer, berbagai macam konten, warna kontekstual, dan opsi tampilan yang kuat.
+          Cards are flexible and extensible content containers. They include options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
         </p>
 
         {/* Simple Card */}
         <h2 id="simple" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Simple
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu dasar yang berfungsi sebagai wadah sederhana untuk teks atau elemen lainnya. Ini adalah blok bangunan fundamental untuk sebagian besar tata letak berbasis kartu.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          A basic card that serves as a simple container for text or other elements. It is the fundamental building block for most card-based layouts.
         </p>
         <CodePreview code={simpleCardCode}>
           <div className="max-w-sm rounded-lg border border-slate-200 bg-white p-6 shadow-md dark:border-slate-800 dark:bg-slate-900">
@@ -458,8 +619,8 @@ export default function CardsPage() {
         <h2 id="with-image" className="mt-12 scroll-mt-20 text-3xl font-bold">
           With Image
         </h2>
-        <p className="mt-4 text-slate-600">
-          Sertakan gambar di bagian atas kartu untuk menambahkan daya tarik visual. Ini umum digunakan untuk kartu profil, produk, atau artikel.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          Include an image at the top of the card to add visual appeal. This is commonly used for profile, product, or article cards.
         </p>
         <CodePreview code={withImageCode}>
           <div className="max-w-sm overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md dark:border-slate-800 dark:bg-slate-900">
@@ -477,8 +638,8 @@ export default function CardsPage() {
         <h2 id="with-header-footer" className="mt-12 scroll-mt-20 text-3xl font-bold">
           With Header & Footer
         </h2>
-        <p className="mt-4 text-slate-600">
-          Tambahkan header dan footer opsional untuk memberikan konteks tambahan atau tindakan pada kartu Anda.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          Add optional headers and footers to provide additional context or actions for your card.
         </p>
         <CodePreview code={withHeaderFooterCode}>
           <div className="max-w-sm overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md dark:border-slate-800 dark:bg-slate-900">
@@ -500,8 +661,8 @@ export default function CardsPage() {
         <h2 id="horizontal" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Horizontal
         </h2>
-        <p className="mt-4 text-slate-600">
-          Ubah tata letak kartu menjadi horizontal dengan menempatkan gambar dan konten secara berdampingan. Ini berguna untuk daftar item atau di mana ruang vertikal terbatas.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          Change the card layout to horizontal by placing the image and content side-by-side. This is useful for item lists or where vertical space is limited.
         </p>
         <CodePreview code={horizontalCardCode}>
           <div className="flex max-w-2xl flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-md dark:border-slate-800 dark:bg-slate-900 md:flex-row">
@@ -522,8 +683,8 @@ export default function CardsPage() {
         <h2 id="interactive" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Interactive
         </h2>
-        <p className="mt-4 text-slate-600">
-          Tambahkan efek hover untuk membuat kartu lebih interaktif. Ini dapat mencakup perubahan bayangan, batas, atau warna untuk memberikan umpan balik visual kepada pengguna.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          Add hover effects to make the card more interactive. This can include changes in shadow, border, or color to provide visual feedback to the user.
         </p>
         <CodePreview code={interactiveCardCode}>
           <div className="group max-w-sm cursor-pointer rounded-lg border border-slate-200 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:hover:border-indigo-500">
@@ -538,8 +699,8 @@ export default function CardsPage() {
         <h2 id="glassmorphism" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Glassmorphism
         </h2>
-        <p className="mt-4 text-slate-600">
-          Gaya modern yang menggunakan blur latar belakang dan transparansi untuk menciptakan tampilan seperti kaca buram. Sangat cocok untuk antarmuka yang ingin menonjolkan lapisan dan kedalaman.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          A modern style that uses background blur and transparency to create a frosted-glass look. It&apos;s perfect for interfaces that want to emphasize layers and depth.
         </p>
         <CodePreview code={glassmorphismCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-cover bg-center p-8" style={{backgroundImage: "url('https://images.unsplash.com/photo-1554034483-04fda0d3507b?q=80&w=870')"}}>
@@ -556,8 +717,8 @@ export default function CardsPage() {
         <h2 id="3d-tilt" className="mt-12 scroll-mt-20 text-3xl font-bold">
           3D Tilt
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu ini memberikan ilusi kedalaman 3D saat kursor bergerak di atasnya. Kartu akan miring mengikuti posisi kursor, menciptakan pengalaman interaktif yang modern dan menarik.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          This card provides a 3D depth illusion as the cursor moves over it. The card tilts to follow the cursor&apos;s position, creating a modern and engaging interactive experience.
         </p>
         <CodePreview code={tiltCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
@@ -580,8 +741,8 @@ export default function CardsPage() {
         <h2 id="spotlight" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Spotlight
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu sorotan menciptakan efek cahaya interaktif yang mengikuti kursor pengguna saat melayang di atas kartu. Efek ini menggunakan gradien radial yang posisinya diperbarui melalui JavaScript, memberikan nuansa premium dan dinamis pada antarmuka Anda.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The spotlight card creates an interactive light effect that follows the user&apos;s cursor as it hovers over the card. This effect uses a radial gradient whose position is updated via JavaScript, giving your interface a premium and dynamic feel.
         </p>
         <CodePreview code={spotlightCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
@@ -599,8 +760,8 @@ export default function CardsPage() {
         <h2 id="particle-effect" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Particle Effect
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu dengan efek partikel ini menciptakan animasi yang memukau saat kursor Anda bergerak di atasnya. Partikel-partikel kecil muncul dan menyebar dari posisi kursor, memberikan nuansa yang dinamis, modern, dan futuristik. Efek ini sangat cocok untuk menarik perhatian pada konten unggulan atau kartu profil.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          This particle effect card creates a stunning animation as your cursor moves over it. Small particles emerge and spread from the cursor&apos;s position, providing a dynamic, modern, and futuristic feel. This effect is perfect for drawing attention to featured content or profile cards.
         </p>
         <CodePreview code={particleCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
@@ -618,8 +779,8 @@ export default function CardsPage() {
         <h2 id="bento-grid" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Bento Grid Layout
         </h2>
-        <p className="mt-4 text-slate-600">
-          Tata letak &ldquo;Bento Grid&rdquo; adalah cara modern dan profesional untuk menyajikan beberapa kartu dalam grid yang menarik secara visual. Ini sangat ideal untuk dasbor, portofolio, atau halaman fitur di mana berbagai potongan informasi perlu ditampilkan secara bersamaan dengan hierarki yang jelas.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &ldquo;Bento Grid&rdquo; layout is a modern and professional way to present multiple cards in a visually appealing grid. It is ideal for dashboards, portfolios, or feature pages where various pieces of information need to be displayed simultaneously with a clear hierarchy.
         </p>
         <CodePreview code={bentoGridCode}>
           <div className="w-full rounded-lg bg-slate-100 p-8 dark:bg-slate-950">
@@ -646,8 +807,8 @@ export default function CardsPage() {
         <h2 id="aurora-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Aurora Card
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu &quot;Aurora&quot; menampilkan efek latar belakang gradien yang halus dan beranimasi saat kursor diarahkan ke atasnya. Efek ini menciptakan nuansa yang modern, premium, dan sedikit magis, cocok untuk menonjolkan konten penting dengan cara yang elegan.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Aurora&quot; card features a subtle and animated gradient background effect on hover. This effect creates a modern, premium, and slightly magical feel, perfect for highlighting important content in an elegant way.
         </p>
         <CodePreview code={auroraCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
@@ -656,7 +817,7 @@ export default function CardsPage() {
               onMouseMove={handleAuroraMove}
             >
               <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                <div className="aurora-bg absolute inset-0 animate-[aurora_8s_linear_infinite] bg-[radial-gradient(ellipse_at_top_left,_var(--aurora-color-1),_transparent_50%),radial-gradient(ellipse_at_top_right,_var(--aurora-color-2),_transparent_50%),radial-gradient(ellipse_at_bottom_left,_var(--aurora-color-3),_transparent_50%)]"></div>
+                <div className="aurora-bg absolute inset-0 animate-[aurora_8s_linear_infinite] bg-[radial-gradient(ellipse_at_top_left,var(--aurora-color-1),transparent_50%),radial-gradient(ellipse_at_top_right,var(--aurora-color-2),transparent_50%),radial-gradient(ellipse_at_bottom_left,var(--aurora-color-3),transparent_50%)]"></div>
               </div>
               <div className="relative z-10">
                 <h3 className="text-xl font-bold text-white">Aurora Card</h3>
@@ -670,14 +831,14 @@ export default function CardsPage() {
         <h2 id="expanding-details-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Expanding Details Card
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu ini dirancang untuk menampilkan informasi secara progresif. Awalnya hanya gambar dan judul yang terlihat, tetapi saat pengguna mengarahkan kursor, deskripsi detail akan muncul dengan animasi yang halus. Ini adalah cara yang bagus untuk menjaga antarmuka tetap bersih sambil menyediakan informasi mendalam saat dibutuhkan.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          This card is designed to display information progressively. Initially, only the image and title are visible, but when the user hovers, a detailed description appears with a smooth animation. This is a great way to keep the interface clean while providing in-depth information when needed.
         </p>
         <CodePreview code={expandingDetailsCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
             <div className="group relative h-80 w-64 overflow-hidden rounded-xl bg-slate-800 shadow-lg">
               <Image src="https://images.unsplash.com/photo-1617396900799-f4ec2b43c7ae?q=80&w=687" alt="Abstract Art" width={256} height={320} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                 <h3 className="text-2xl font-bold">Vibrant Strokes</h3>
                 <div className="max-h-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-40">
@@ -692,8 +853,8 @@ export default function CardsPage() {
         <h2 id="floating-glass-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Floating Glass Card
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu ini adalah perpaduan dari beberapa tren desain modern untuk tahun 2025. Menggunakan efek *glassmorphism* untuk tampilan transparan, animasi mengambang yang halus untuk memberikan kesan hidup, dan efek 3D tilt interaktif saat di-hover. Sangat cocok untuk menampilkan layanan atau kategori produk di halaman portofolio atau web perusahaan.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          This card is a blend of several modern design trends for 2025. It uses a *glassmorphism* effect for a transparent look, a smooth floating animation to give a sense of life, and an interactive 3D tilt effect on hover. It is perfect for showcasing services or product categories on a portfolio or company website.
         </p>
         <CodePreview code={floatingGlassCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-cover bg-center p-12" style={{backgroundImage: "url('https://images.unsplash.com/photo-1536566482680-fca31930a0bd?q=80&w=987')"}}>
@@ -719,8 +880,8 @@ export default function CardsPage() {
         <h2 id="staggered-grid-layout" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Staggered Grid Layout
         </h2>
-        <p className="mt-4 text-slate-600">
-          Tata letak &quot;Staggered Grid&quot; atau Masonry sangat ideal untuk portofolio visual, galeri gambar, atau papan pin. Ini memungkinkan item dengan ketinggian yang berbeda untuk masuk secara efisien ke dalam grid, menciptakan tata letak yang dinamis dan menarik. Tata letak ini dibuat murni dengan CSS menggunakan properti `columns`.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Staggered Grid&quot; or Masonry layout is ideal for visual portfolios, image galleries, or pinboards. It allows items of different heights to fit efficiently into the grid, creating a dynamic and engaging layout. This layout is created purely with CSS using the `columns` property.
         </p>
         <CodePreview code={staggeredGridCode}>
           <div className="w-full rounded-lg bg-slate-100 p-8 dark:bg-slate-950">
@@ -739,8 +900,8 @@ export default function CardsPage() {
         <h2 id="kinetic-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Kinetic Card
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu &quot;Kinetic&quot; dirancang untuk e-commerce modern atau portofolio. Kartu ini menggabungkan beberapa efek interaktif: cahaya yang mengikuti kursor, gambar yang membesar, dan tombol aksi yang muncul saat di-hover. Desain berlapis dengan border dalam memberikan tampilan premium dan profesional, sangat cocok untuk menonjolkan produk atau proyek.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Kinetic&quot; card is designed for modern e-commerce or portfolios. It combines several interactive effects: a cursor-following light, an enlarging image, and an action button that appears on hover. The layered design with an inner border provides a premium and professional look, perfect for highlighting products or projects.
         </p>
         <CodePreview code={kineticCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
@@ -775,8 +936,8 @@ export default function CardsPage() {
         <h2 id="infinite-carousel" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Infinite Carousel
         </h2>
-        <p className="mt-4 text-slate-600">
-          Tata letak &quot;Infinite Carousel&quot; adalah cara yang efektif untuk menampilkan serangkaian item, seperti logo klien, produk unggulan, atau anggota tim, dalam satu baris yang terus bergerak. Ini menciptakan ilusi loop tak terbatas dan menghemat ruang vertikal. Efek ini dibuat murni dengan CSS `animation` dan `flexbox`.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Infinite Carousel&quot; layout is an effective way to display a series of items, such as client logos, featured products, or team members, in a continuously moving row. It creates the illusion of an infinite loop and saves vertical space. This effect is created purely with CSS `animation` and `flexbox`.
         </p>
         <CodePreview code={infiniteCarouselCode}>
           <div className="w-full rounded-lg bg-slate-100 p-8 dark:bg-slate-950">
@@ -801,8 +962,8 @@ export default function CardsPage() {
         <h2 id="glowing-border-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Glowing Border Card
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu ini memiliki efek &quot;glowing border&quot; yang mengikuti kursor, memberikan ilusi batas yang menyala secara dinamis. Efek ini menggunakan pseudo-element dengan gradien radial yang posisinya diatur oleh JavaScript, menciptakan tampilan yang sangat modern dan profesional.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          This card features a &quot;glowing border&quot; effect that follows the cursor, giving the illusion of a dynamically lit border. This effect uses a pseudo-element with a radial gradient whose position is controlled by JavaScript, creating a very modern and professional look.
         </p>
         <CodePreview code={glowingBorderCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
@@ -823,16 +984,185 @@ export default function CardsPage() {
         <h2 id="gradient-border-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Gradient Border Card
         </h2>
-        <p className="mt-4 text-slate-600">
-          Kartu &quot;Gradient Border&quot; adalah pilihan yang sangat baik untuk desain yang bersih dan profesional. Saat pengguna mengarahkan kursor, batas gradien yang halus muncul, memberikan umpan balik visual yang elegan tanpa mengganggu. Efek ini dibuat murni dengan CSS, menjadikannya ringan dan mudah diimplementasikan.
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Gradient Border&quot; card is an excellent choice for a clean and professional design. When the user hovers, a smooth gradient border appears, providing elegant visual feedback without being distracting. This effect is created purely with CSS, making it lightweight and easy to implement.
         </p>
         <CodePreview code={gradientBorderCardCode}>
           <div className="flex w-full items-center justify-center rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
             <div className="group relative max-w-sm cursor-pointer rounded-xl border border-transparent bg-white p-1 shadow-md transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-300/20 dark:border-transparent dark:bg-slate-900 dark:hover:shadow-slate-700/20">
-              <div className="absolute -inset-px z-0 rounded-xl bg-gradient-to-r from-purple-500 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute -inset-px z-0 rounded-xl bg-linear-to-r from-purple-500 to-indigo-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="relative z-10 rounded-lg bg-white p-6 dark:bg-slate-900">
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white">Gradient Border Card</h3>
                 <p className="mt-2 text-slate-600 dark:text-slate-400">This card reveals a soft gradient border on hover, adding a professional and modern touch to your UI.</p>
+              </div>
+            </div>
+          </div>
+        </CodePreview>
+
+        {/* Evervault Card */}
+        <h2 id="evervault-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Evervault Card
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Evervault&quot; card is a modern design featuring an SVG background pattern that interacts with cursor movement. As the cursor moves over the card, a radial highlight follows, illuminating the pattern beneath. This effect creates a sophisticated and professional visual experience, ideal for showcasing tech features or premium products.
+        </p>
+        <CodePreview code={evervaultCardCode}>
+          <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
+            <div className="group relative max-w-sm cursor-pointer overflow-hidden rounded-xl border border-slate-800 bg-slate-900 p-px" onMouseMove={handleEvervaultCardMove}>
+              <div className="pointer-events-none absolute -inset-px transition duration-300" style={{ background: 'radial-gradient(600px circle at var(--x) var(--y), rgba(255, 255, 255, 0.1), transparent 40%)' }} />
+              <div className="relative rounded-xl bg-slate-900/95 p-6">
+                <div className="absolute inset-0" style={{ backgroundImage: `url('data:image/svg+xml,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke-width="2" stroke="rgb(30 41 59 / 0.5)"%3e%3cpath d="M0 .5H31.5V32"/%3e%3c/svg%3e')`, maskImage: 'radial-gradient(transparent, black 50%)', WebkitMaskImage: 'radial-gradient(transparent, black 50%)' }}></div>
+                <h3 className="relative z-10 text-xl font-bold text-white">Evervault Card</h3>
+                <p className="relative z-10 mt-2 text-slate-400">A modern card with a background pattern that animates on cursor move.</p>
+              </div>
+            </div>
+          </div>
+        </CodePreview>
+
+        {/* Meteoric Card */}
+        <h2 id="meteoric-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Meteoric Card
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Meteoric&quot; card features an animated background effect of meteors streaking across the card continuously. This effect is created purely with CSS, providing a dynamic, modern, and slightly magical feel, perfect for cards that want to attract attention in a subtle yet elegant way.
+        </p>
+        <CodePreview code={meteoricCardCode}>
+          <div className="flex w-full items-center justify-center rounded-lg bg-slate-950 p-12">
+            <div className="relative max-w-sm overflow-hidden rounded-lg bg-slate-900 p-6 shadow-lg">
+              <div className="pointer-events-none absolute inset-0">
+                <span className="absolute top-0 left-1/2 h-80 w-0.5 -translate-x-1/2 rotate-215 animate-[meteor-effect_3s_linear_infinite] bg-linear-to-b from-slate-400/40 to-transparent"></span>
+                <span className="absolute top-0 left-1/3 h-60 w-0.5 -translate-x-1/2 rotate-215 animate-[meteor-effect_4s_linear_2s_infinite] bg-linear-to-b from-slate-400/40 to-transparent"></span>
+                <span className="absolute top-0 left-2/3 h-72 w-px -translate-x-1/2 rotate-215 animate-[meteor-effect_5s_linear_1s_infinite] bg-linear-to-b from-slate-400/40 to-transparent"></span>
+              </div>
+              <div className="relative z-10">
+                <h3 className="text-xl font-bold text-white">Meteoric Card</h3>
+                <p className="mt-2 text-slate-300">A card with animated meteors streaking across the background.</p>
+              </div>
+            </div>
+          </div>
+        </CodePreview>
+
+        {/* Docking Cards Layout */}
+        <h2 id="docking-cards-layout" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Docking Cards Layout
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Docking Cards&quot; layout is an interactive way to display a group of items or navigation. When the user hovers over one of the cards, it expands while the others shrink, creating a responsive dock-like effect. This layout is made purely with CSS and is perfect for menus, galleries, or category selections.
+        </p>
+        <CodePreview code={dockingCardsCode}>
+          <div className="flex w-full items-center justify-center rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
+            <div className="group/dock flex h-16 w-full max-w-md items-end justify-center gap-3 rounded-2xl bg-slate-900 p-4 transition-all duration-300 ease-in-out hover:h-28"><div className="group/card relative aspect-square w-12 cursor-pointer rounded-xl bg-slate-700 transition-all duration-300 ease-in-out hover:w-24!"><div className="absolute inset-x-0 -bottom-8 flex justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"><span className="text-sm text-slate-400">Home</span></div></div><div className="group/card relative aspect-square w-12 cursor-pointer rounded-xl bg-slate-700 transition-all duration-300 ease-in-out hover:w-24!"><div className="absolute inset-x-0 -bottom-8 flex justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"><span className="text-sm text-slate-400">Music</span></div></div><div className="group/card relative aspect-square w-12 cursor-pointer rounded-xl bg-slate-700 transition-all duration-300 ease-in-out hover:w-24!"><div className="absolute inset-x-0 -bottom-8 flex justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"><span className="text-sm text-slate-400">Apps</span></div></div><div className="group/card relative aspect-square w-12 cursor-pointer rounded-xl bg-slate-700 transition-all duration-300 ease-in-out hover:w-24!"><div className="absolute inset-x-0 -bottom-8 flex justify-center opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"><span className="text-sm text-slate-400">Settings</span></div></div></div>
+          </div>
+        </CodePreview>
+
+        {/* Parallax Hover Cards */}
+        <h2 id="parallax-hover-cards" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Parallax Hover Cards
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          This layout features a grid of cards with a subtle parallax effect on the background image on hover. The image will slightly zoom and move, creating a modern and professional illusion of depth. It is perfect for portfolios, galleries, or feature cards that want to emphasize visuals.
+        </p>
+        <CodePreview code={parallaxHoverCardsCode}>
+          <div className="w-full rounded-lg bg-slate-100 p-8 dark:bg-slate-950">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="group relative h-72 w-full cursor-pointer overflow-hidden rounded-xl shadow-lg">
+                <div className="absolute inset-0 z-10 bg-linear-to-t from-black/70 via-black/40 to-transparent"></div>
+                <Image src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e" layout="fill" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" alt="Workspace" />
+                <div className="relative z-20 flex h-full flex-col justify-end p-6 text-white">
+                  <h3 className="text-2xl font-bold">Creative Workspace</h3>
+                  <p className="mt-2 text-sm opacity-80">A space designed for focus and creativity.</p>
+                </div>
+              </div>
+              <div className="group relative h-72 w-full cursor-pointer overflow-hidden rounded-xl shadow-lg">
+                <div className="absolute inset-0 z-10 bg-linear-to-t from-black/70 via-black/40 to-transparent"></div>
+                <Image src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" layout="fill" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" alt="Laptop with code" />
+                <div className="relative z-20 flex h-full flex-col justify-end p-6 text-white">
+                  <h3 className="text-2xl font-bold">Modern Development</h3>
+                  <p className="mt-2 text-sm opacity-80">Building the future, one line of code at a time.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CodePreview>
+
+        {/* 3D Flipping Card */}
+        <h2 id="3d-flipping-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          3D Flipping Card
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          This card provides a 3D flipping effect on hover, revealing content on the back. It&apos;s an interactive and space-saving way to display additional information, such as contact details on a profile card or specifications on a product card. This effect is created purely with CSS and the `transform` property.
+        </p>
+        <CodePreview code={flippingCardCode}>
+          <div className="flex w-full items-center justify-center rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
+            <div className="group h-72 w-56 cursor-pointer perspective-[1000px]">
+              <div className="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 transform-3d group-hover:transform-[rotateY(180deg)]">
+                <div className="absolute inset-0">
+                  <Image className="h-full w-full rounded-xl object-cover shadow-xl shadow-black/40" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=687" alt="Profile Picture" width={224} height={288} />
+                </div>
+                <div className="absolute inset-0 h-full w-full rounded-xl bg-black/80 px-6 text-center text-slate-200 transform-[rotateY(180deg)] backface-hidden">
+                  <div className="flex min-h-full flex-col items-center justify-center">
+                    <h3 className="text-2xl font-bold">John Doe</h3>
+                    <p className="text-lg">Software Engineer</p>
+                    <p className="mt-2 text-sm">Building innovative solutions for the web.</p>
+                    <button className="mt-4 rounded-md bg-indigo-600 px-3 py-1 text-sm font-semibold text-white hover:bg-indigo-700">Contact</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CodePreview>
+
+        {/* Reveal Card */}
+        <h2 id="reveal-card" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Reveal Card
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Reveal&quot; card is an elegant way to display information progressively. When the user hovers, additional content like a description and action button slides up smoothly from the bottom. It&apos;s perfect for portfolios, product cards, or galleries where you want to keep the interface clean and focused on visuals.
+        </p>
+        <CodePreview code={revealCardCode}>
+          <div className="flex w-full items-center justify-center rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
+            <div className="group relative h-80 w-64 cursor-pointer overflow-hidden rounded-xl shadow-lg">
+              <Image src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=799" alt="Product" width={256} height={320} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
+              <div className="absolute inset-0 flex translate-y-[60%] flex-col justify-center p-6 text-white transition-transform duration-500 group-hover:translate-y-0">
+                <h3 className="text-2xl font-bold">Sleek Watch</h3>
+                <div className="pt-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <p className="text-sm">
+                    A perfect blend of classic design and modern technology.
+                  </p>
+                  <button className="mt-4 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700">
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </CodePreview>
+
+        {/* Stacked Deck Layout */}
+        <h2 id="stacked-deck-layout" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Stacked Deck Layout
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">
+          The &quot;Stacked Deck&quot; layout is a dynamic and space-saving way to display a series of cards. When the user hovers over the stack, the cards fan out with a smooth animation, revealing the content of each card. It&apos;s perfect for showcasing steps in a process, key features, or related portfolio items.
+        </p>
+        <CodePreview code={stackedDeckCardCode}>
+          <div className="flex w-full items-center justify-center rounded-lg bg-slate-100 p-12 dark:bg-slate-950">
+            <div className="group relative h-64 w-full max-w-sm cursor-pointer">
+              {/* Card 3 (Bottom) */}
+              <div className="absolute inset-0 rounded-xl bg-slate-700 p-6 text-white shadow-lg transition-transform duration-500 ease-in-out group-hover:-translate-y-4 group-hover:rotate-6">
+                <h3 className="text-xl font-bold">Step 3: Launch</h3>
+                <p className="mt-2 text-sm">Deploy the application to production and monitor its performance.</p>
+              </div>
+              {/* Card 2 (Middle) */}
+              <div className="absolute inset-0 rounded-xl bg-slate-800 p-6 text-white shadow-lg transition-transform duration-500 ease-in-out group-hover:-translate-y-2 group-hover:rotate-2">
+                <h3 className="text-xl font-bold">Step 2: Develop</h3>
+                <p className="mt-2 text-sm">Build the features with clean and efficient code.</p>
+              </div>
+              {/* Card 1 (Top) */}
+              <div className="absolute inset-0 rounded-xl bg-slate-900 p-6 text-white shadow-lg transition-transform duration-500 ease-in-out group-hover:-rotate-2">
+                <div className="flex items-center justify-between"><h3 className="text-xl font-bold">Step 1: Plan</h3><span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Hover Me</span></div>
+                <p className="mt-2 text-sm">Define the project scope, goals, and requirements.</p>
               </div>
             </div>
           </div>

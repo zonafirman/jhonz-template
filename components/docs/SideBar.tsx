@@ -54,9 +54,39 @@ const sidebarItems: SidebarItem[] = [
     id: 'components',
     label: 'Components',
     children: [
+      { href: '/docs/components/accordion', label: 'Accordion' },
+      { href: '/docs/components/alert', label: 'Alert' },
+      { href: '/docs/components/avatar', label: 'Avatar' },
+      { href: '/docs/components/back-to-top-button', label: 'Back To Top Button' },
+      { href: '/docs/components/badge', label: 'Badge' }, { href: '/docs/components/breadchrumb', label: 'Breadcrumb' },
       { href: '/docs/components/button', label: 'Button' },
       { href: '/docs/components/card', label: 'Card' },
-      { href: '/docs/components/alert', label: 'Alert' },
+      { href: '/docs/components/checkbox', label: 'Checkbox' },
+      { href: '/docs/components/chip', label: 'Chip' },
+      { href: '/docs/components/date-picker', label: 'Date Picker' },
+      { href: '/docs/components/divider', label: 'Divider' },
+      { href: '/docs/components/dropdown', label: 'Dropdown' },
+      { href: '/docs/components/file-upload', label: 'File Upload' },
+      { href: '/docs/components/icon', label: 'Icon' },
+      { href: '/docs/components/image', label: 'Image' },
+      { href: '/docs/components/input-field', label: 'Input Field' },
+      { href: '/docs/components/label', label: 'Label' },
+      { href: '/docs/components/link', label: 'Link' },
+      { href: '/docs/components/pagination', label: 'Pagination' },
+      { href: '/docs/components/progress-bar', label: 'Progress Bar' },
+      { href: '/docs/components/radio-button', label: 'Radio Button' },
+      { href: '/docs/components/rating', label: 'Rating' },
+      { href: '/docs/components/search-bar', label: 'Search Bar' },
+      { href: '/docs/components/select', label: 'Select' },
+      { href: '/docs/components/skeleton', label: 'Skeleton' },
+      { href: '/docs/components/slider', label: 'Slider' },
+      { href: '/docs/components/spinner', label: 'Spinner' },
+      { href: '/docs/components/stepper', label: 'Stepper' },
+      { href: '/docs/components/tabs', label: 'Tabs' },
+      { href: '/docs/components/text-area', label: 'Text Area' },
+      { href: '/docs/components/toast', label: 'Toast' },
+      { href: '/docs/components/toggle', label: 'Toggle' },
+      { href: '/docs/components/tooltip', label: 'Tooltip' },
     ],
   },
 ] as const; // Using 'as const' for stricter typing
@@ -215,8 +245,8 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="fixed top-0 left-0 z-10 h-screen w-64 border-r border-slate-200 bg-slate-50 p-4 pt-20">
-      <nav className="flex flex-col space-y-1">
+    <aside className="fixed top-16 left-0 z-10 h-[calc(100vh-4rem)] w-64 border-r border-slate-200 bg-slate-50">
+      <nav className="h-full overflow-y-auto p-4 space-y-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {sidebarItems.map((item) => {
           if (item.type === 'link') {
             return <SidebarLink key={item.href} href={item.href} label={item.label} pathname={pathname} />;
