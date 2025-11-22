@@ -75,14 +75,14 @@ export default function FileUploadPage() {
           File Upload
         </h1>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Komponen unggah file memungkinkan pengguna untuk memilih satu atau lebih file dari perangkat mereka untuk diunggah ke server.
+          The file upload component allows users to select one or more files from their device to upload to the server.
         </p>
 
         <h2 id="simple-upload" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Simple Upload
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Gunakan input file standar yang telah disesuaikan gayanya untuk kasus penggunaan dasar.
+          Use a standard file input that has been styled for basic use cases.
         </p>
         <CodePreview code={simpleUploadCode}>
           <label className="block">
@@ -95,7 +95,7 @@ export default function FileUploadPage() {
           Drag and Drop
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Buat zona jatuhkan (dropzone) untuk memungkinkan pengguna mengunggah file dengan cara menyeret dan melepaskannya.
+          Create a dropzone to allow users to upload files by dragging and dropping them.
         </p>
         <CodePreview code={dragAndDropCode}>
           <div className="flex w-full items-center justify-center">
@@ -116,7 +116,7 @@ export default function FileUploadPage() {
           With Preview
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Tampilkan pratinjau gambar setelah pengguna memilih file. Contoh ini menggunakan `react-dropzone` untuk fungsionalitas drag-and-drop dan pratinjau.
+          Display an image preview after the user selects a file. This example uses `react-dropzone` for drag-and-drop and preview functionality.
         </p>
         <CodePreview code={withPreviewCode}>
           <div {...getRootProps()} className="flex w-full items-center justify-center">

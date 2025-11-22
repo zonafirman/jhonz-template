@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
@@ -46,7 +46,6 @@ const sidebarItems: SidebarItem[] = [
     children: [
       { href: '/docs/introduction', label: 'Introduction' },
       { href: '/docs/installation', label: 'Installation' },
-      { href: '/docs/index', label: 'Index' },
     ],
   },
   {
@@ -69,7 +68,7 @@ const sidebarItems: SidebarItem[] = [
       { href: '/docs/components/file-upload', label: 'File Upload' },
       { href: '/docs/components/icon', label: 'Icon' },
       { href: '/docs/components/image', label: 'Image' },
-      { href: '/docs/components/input-field', label: 'Input Field' },
+      { href: '/docs/components/input', label: 'Input' },
       { href: '/docs/components/label', label: 'Label' },
       { href: '/docs/components/link', label: 'Link' },
       { href: '/docs/components/pagination', label: 'Pagination' },
@@ -118,7 +117,7 @@ const SidebarLink = ({ href, label, pathname }: { href: string; label: string; p
   }`;
 
   return (
-    <motion.div whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
+    <motion.div data-active={isActive} whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
       <Link
         href={href}
         className={`relative ${linkClasses}`}
@@ -194,6 +193,7 @@ const CollapsibleSection = ({ item, pathname, isOpen, onToggle }: { item: Collap
  */
 export default function Sidebar() {
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
  
   // Initialize state to be consistent on server and client to avoid hydration errors.
   const [openSections, setOpenSections] = useState<OpenSections>({} as OpenSections);
@@ -233,6 +233,18 @@ export default function Sidebar() {
     }
   }, [openSections, isInitialised]);
 
+  // Scroll to active link on page change
+  useEffect(() => {
+    if (isInitialised && navRef.current) {
+      const activeElement = navRef.current.querySelector<HTMLElement>('[data-active="true"]');
+      if (activeElement) {
+        activeElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }
+    }
+  }, [pathname, isInitialised]);
   /**
    * Toggles the open/closed state of a collapsible section.
    * @param sectionId - The ID of the section to toggle.
@@ -246,7 +258,7 @@ export default function Sidebar() {
 
   return (
     <aside className="fixed top-16 left-0 z-10 h-[calc(100vh-4rem)] w-64 border-r border-slate-200 bg-slate-50">
-      <nav className="h-full overflow-y-auto p-4 space-y-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <nav ref={navRef} className="h-full overflow-y-auto p-4 space-y-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {sidebarItems.map((item) => {
           if (item.type === 'link') {
             return <SidebarLink key={item.href} href={item.href} label={item.label} pathname={pathname} />;

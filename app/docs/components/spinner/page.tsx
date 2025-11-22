@@ -1,0 +1,103 @@
+'use client';
+import RightSidebar from '@/components/docs/RightSideBar';
+import React from 'react';
+import CodePreview from '@/app/docs/components/CodePreview';
+import Link from 'next/link';
+
+const pageHeadings = [
+  { title: 'Spinner', slug: 'spinner', level: 1 },
+  { title: 'Basic Usage', slug: 'basic-usage', level: 2 },
+  { title: 'Colors', slug: 'colors', level: 2 },
+  { title: 'Sizes', slug: 'sizes', level: 2 },
+  { title: 'Alignment', slug: 'alignment', level: 2 },
+];
+
+const basicUsageCode = `<div role="status">
+    <svg aria-hidden="true" class="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+    </svg>
+    <span class="sr-only">Loading...</span>
+</div>`;
+
+const colorsCode = `<div class="flex flex-wrap items-center gap-4">
+    <!-- Blue -->
+    <div role="status"><svg aria-hidden="true" class="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg></div>
+    <!-- Red -->
+    <div role="status"><svg aria-hidden="true" class="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-red-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg></div>
+    <!-- Green -->
+    <div role="status"><svg aria-hidden="true" class="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-green-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg></div>
+    <!-- Yellow -->
+    <div role="status"><svg aria-hidden="true" class="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-yellow-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg></div>
+</div>`;
+
+const sizesCode = `<div class="flex flex-wrap items-center gap-4">
+    <!-- Small -->
+    <div role="status"><svg aria-hidden="true" class="w-4 h-4 text-slate-200 animate-spin dark:text-slate-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg></div>
+    <!-- Medium -->
+    <div role="status"><svg aria-hidden="true" class="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg></div>
+    <!-- Large -->
+    <div role="status"><svg aria-hidden="true" class="w-12 h-12 text-slate-200 animate-spin dark:text-slate-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg></div>
+</div>`;
+
+const alignmentCode = `<div class="relative h-24">
+  <div role="status" class="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
+      <svg aria-hidden="true" class="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">...</svg>
+      <span class="sr-only">Loading...</span>
+  </div>
+</div>`;
+
+export default function SpinnerPage() {
+  return (
+    <div className="flex w-full">
+      <article className="min-w-0 flex-1 pe-8">
+        <nav aria-label="Breadcrumb" className="mb-6 flex items-center space-x-2 text-sm text-slate-500">
+          <Link href="/docs" className="block transition hover:text-slate-700">
+            Documentation
+          </Link>
+          <span className="select-none text-slate-400">/</span>
+          <span className="font-semibold text-slate-700">Spinner</span>
+        </nav>
+
+        <h1 id="spinner" className="scroll-mt-20 text-4xl font-bold">
+          Spinner
+        </h1>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">Gunakan komponen spinner untuk menunjukkan status pemuatan suatu aksi atau halaman.</p>
+
+        <h2 id="basic-usage" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Basic Usage
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">Contoh dasar dari komponen spinner. Gunakan kelas `animate-spin` dari Tailwind CSS untuk membuat animasi berputar.</p>
+        <CodePreview code={basicUsageCode}>
+          <div dangerouslySetInnerHTML={{ __html: basicUsageCode }} />
+        </CodePreview>
+
+        <h2 id="colors" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Colors
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">Sesuaikan warna spinner menggunakan kelas utilitas <code>fill-{'{'}color{'}'}</code> dari Tailwind CSS.</p>
+        <CodePreview code={colorsCode}>
+          <div dangerouslySetInnerHTML={{ __html: colorsCode.replace(/\.\.\./g, `<path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>`) }} />
+        </CodePreview>
+
+        <h2 id="sizes" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Sizes
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">Gunakan kelas utilitas <code>w-{'{'}size{'}'}</code> dan <code>h-{'{'}size{'}'}</code> dari Tailwind CSS untuk mengubah ukuran spinner.</p>
+        <CodePreview code={sizesCode}>
+          <div dangerouslySetInnerHTML={{ __html: sizesCode.replace(/\.\.\./g, `<path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>`) }} />
+        </CodePreview>
+
+        <h2 id="alignment" className="mt-12 scroll-mt-20 text-3xl font-bold">
+          Alignment
+        </h2>
+        <p className="mt-4 text-slate-600 dark:text-slate-400">Gunakan kelas utilitas flexbox atau positioning untuk menyelaraskan spinner di dalam container.</p>
+        <CodePreview code={alignmentCode}>
+          <div dangerouslySetInnerHTML={{ __html: alignmentCode.replace(/\.\.\./g, `<path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>`) }} />
+        </CodePreview>
+      </article>
+
+      <RightSidebar headings={pageHeadings} />
+    </div>
+  );
+}

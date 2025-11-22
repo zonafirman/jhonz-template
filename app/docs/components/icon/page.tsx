@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 const pageHeadings = [
   { title: 'Icon', slug: 'icon', level: 1 },
-  { title: 'Penggunaan Dasar', slug: 'basic-usage', level: 2 },
-  { title: 'Ukuran', slug: 'sizing', level: 2 },
-  { title: 'Warna', slug: 'coloring', level: 2 },
-  { title: 'Sebagai Tombol', slug: 'icon-as-button', level: 2 },
+  { title: 'Basic Usage', slug: 'basic-usage', level: 2 },
+  { title: 'Sizing', slug: 'sizing', level: 2 },
+  { title: 'Coloring', slug: 'coloring', level: 2 },
+  { title: 'As a Button', slug: 'icon-as-button', level: 2 },
 ];
 
 const basicUsageCode = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
@@ -17,15 +17,15 @@ const basicUsageCode = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" view
 </svg>`;
 
 const sizingCode = `<div class="flex items-center gap-4 text-slate-600 dark:text-slate-400">
-  {/* Ukuran Kecil (h-4 w-4) */}
+  {/* Small (h-4 w-4) */}
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
   </svg>
-  {/* Ukuran Sedang (h-6 w-6) */}
+  {/* Medium (h-6 w-6) */}
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
   </svg>
-  {/* Ukuran Besar (h-8 w-8) */}
+  {/* Large (h-8 w-8) */}
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
   </svg>
@@ -65,14 +65,14 @@ export default function IconPage() {
           Icon
         </h1>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Ikon adalah elemen visual yang digunakan untuk merepresentasikan tindakan, objek, atau ide. Penggunaan ikon yang konsisten dapat meningkatkan kegunaan dan estetika antarmuka Anda.
+          Icons are visual elements used to represent actions, objects, or ideas. Consistent use of icons can improve the usability and aesthetics of your interface.
         </p>
 
         <h2 id="basic-usage" className="mt-12 scroll-mt-20 text-3xl font-bold">
-          Penggunaan Dasar
+          Basic Usage
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Berikut adalah contoh dasar penggunaan ikon SVG. Anda dapat menggunakan pustaka ikon seperti Heroicons atau ikon kustom Anda sendiri.
+          Here is a basic example of using an SVG icon. You can use an icon library like Heroicons or your own custom icons.
         </p>
         <CodePreview code={basicUsageCode}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-6 w-6 text-slate-600 dark:text-slate-400">
@@ -81,10 +81,10 @@ export default function IconPage() {
         </CodePreview>
 
         <h2 id="sizing" className="mt-12 scroll-mt-20 text-3xl font-bold">
-          Ukuran
+          Sizing
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Ubah ukuran ikon dengan mudah menggunakan kelas utilitas lebar (`w-*`) dan tinggi (`h-*`) dari Tailwind CSS.
+          Easily change the size of icons using Tailwind CSS&apos;s width (`w-*`) and height (`h-*`) utility classes.
         </p>
         <CodePreview code={sizingCode}>
           <div className="flex items-center gap-4 text-slate-600 dark:text-slate-400">
@@ -101,10 +101,10 @@ export default function IconPage() {
         </CodePreview>
 
         <h2 id="coloring" className="mt-12 scroll-mt-20 text-3xl font-bold">
-          Warna
+          Coloring
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Terapkan warna pada ikon menggunakan kelas utilitas warna teks (`text-*`) dari Tailwind CSS.
+          Apply color to icons using Tailwind CSS&apos;s text color (`text-*`) utility classes.
         </p>
         <CodePreview code={coloringCode}>
           <div className="flex items-center gap-4">
@@ -121,10 +121,10 @@ export default function IconPage() {
         </CodePreview>
 
         <h2 id="icon-as-button" className="mt-12 scroll-mt-20 text-3xl font-bold">
-          Sebagai Tombol
+          As a Button
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Ikon sering digunakan sebagai tombol. Bungkus ikon dalam elemen `&lt;button&gt;` untuk memastikan aksesibilitas dan interaktivitas yang tepat.
+          Icons are often used as buttons. Wrap the icon in a `&lt;button&gt;` element to ensure proper accessibility and interactivity.
         </p>
         <CodePreview code={iconAsButtonCode}>
           <button className="rounded-full p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-300">

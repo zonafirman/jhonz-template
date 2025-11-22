@@ -62,14 +62,14 @@ export default function DatePickerPage() {
           Date Picker
         </h1>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Komponen pemilih tanggal (date picker) memungkinkan pengguna untuk memilih tanggal dari kalender. Ini adalah elemen input standar HTML yang gayanya disesuaikan dengan Tailwind CSS.
+          The date picker component allows users to select a date from a calendar. This is a standard HTML input element styled with Tailwind CSS.
         </p>
 
         <h2 id="simple-date-picker" className="mt-12 scroll-mt-20 text-3xl font-bold">
           Simple Date Picker
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Pemilih tanggal dasar yang memungkinkan pengguna memilih satu tanggal.
+          A basic date picker that allows users to select a single date.
         </p>
         <CodePreview code={simpleDatePickerCode}>
           <div className="relative max-w-sm">
@@ -81,7 +81,7 @@ export default function DatePickerPage() {
           With Icon
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Tambahkan ikon di dalam input tanggal untuk memberikan konteks visual.
+          Add an icon inside the date input to provide visual context.
         </p>
         <CodePreview code={withIconDatePickerCode}>
           <div className="relative max-w-sm">
@@ -98,7 +98,7 @@ export default function DatePickerPage() {
           Date Range
         </h2>
         <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Gunakan dua pemilih tanggal untuk memilih rentang tanggal (tanggal mulai dan tanggal akhir).
+          Use two date pickers to select a date range (start date and end date).
         </p>
         <CodePreview code={dateRangePickerCode}>
           <div className="flex items-center">
