@@ -1,9 +1,19 @@
-'use client';
 import RightSidebar from '@/components/docs/RightSideBar';
-import React, { useState } from 'react';
-import CodePreview from '@/app/docs/components/CodePreview';
+import React from 'react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+import DatePickerClientComponent from './DatePickerClientComponent';
 
+export const metadata: Metadata = {
+  title: 'React Date Picker Component - Tailwind CSS | Jhonz Template',
+  description: 'Dokumentasi dan contoh penggunaan untuk komponen date picker yang dibuat dengan React dan Tailwind CSS. Termasuk gaya sederhana, dengan ikon, dan rentang tanggal.',
+  keywords: ['react date picker', 'tailwind css date picker', 'date picker component', 'form component', 'ui component', 'jhonz template'],
+  authors: [{ name: 'Zona Firman', url: 'https://zona-firman.vercel.app' }],
+  openGraph: {
+    title: 'React Date Picker Component - Tailwind CSS | Jhonz Template',
+    description: 'Berbagai contoh komponen date picker yang modern dan dapat disesuaikan, dibuat dengan React dan Tailwind CSS.',
+  },
+};
 const pageHeadings = [
   { title: 'Date Picker', slug: 'date-picker', level: 1 },
   { title: 'Simple', slug: 'simple-date-picker', level: 2 },
@@ -11,42 +21,7 @@ const pageHeadings = [
   { title: 'Date Range', slug: 'date-range', level: 2 },
 ];
 
-const simpleDatePickerCode = `<div class="relative max-w-sm">
-  <input
-    type="date"
-    class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-    placeholder="Select date"
-  />
-</div>`;
-
-const withIconDatePickerCode = `<div class="relative max-w-sm">
-  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
-    <svg class="h-4 w-4 text-slate-500 dark:text-slate-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-    </svg>
-  </div>
-  <input
-    type="date"
-    class="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 pl-10 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-    placeholder="Select date"
-  />
-</div>`;
-
-const dateRangePickerCode = `<div class="flex items-center">
-  <div class="relative">
-    <input name="start" type="date" class="block w-full rounded-l-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Select date start">
-  </div>
-  <span class="mx-4 text-slate-500">to</span>
-  <div class="relative">
-    <input name="end" type="date" class="block w-full rounded-r-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Select date end">
-  </div>
-</div>`;
-
 export default function DatePickerPage() {
-  const [date, setDate] = useState<string>('');
-  const [startDate, setStartDate] = useState<string>('');
-  const [endDate, setEndDate] = useState<string>('');
-
   return (
     <div className="flex w-full">
       <article className="min-w-0 flex-1 pe-8">
@@ -64,53 +39,7 @@ export default function DatePickerPage() {
         <p className="mt-4 text-slate-600 dark:text-slate-400">
           The date picker component allows users to select a date from a calendar. This is a standard HTML input element styled with Tailwind CSS.
         </p>
-
-        <h2 id="simple-date-picker" className="mt-12 scroll-mt-20 text-3xl font-bold">
-          Simple Date Picker
-        </h2>
-        <p className="mt-4 text-slate-600 dark:text-slate-400">
-          A basic date picker that allows users to select a single date.
-        </p>
-        <CodePreview code={simpleDatePickerCode}>
-          <div className="relative max-w-sm">
-            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Select date" />
-          </div>
-        </CodePreview>
-
-        <h2 id="with-icon" className="mt-12 scroll-mt-20 text-3xl font-bold">
-          With Icon
-        </h2>
-        <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Add an icon inside the date input to provide visual context.
-        </p>
-        <CodePreview code={withIconDatePickerCode}>
-          <div className="relative max-w-sm">
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
-              <svg className="h-4 w-4 text-slate-500 dark:text-slate-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-              </svg>
-            </div>
-            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="block w-full rounded-lg border border-slate-300 bg-slate-50 p-2.5 pl-10 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-400 dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Select date" />
-          </div>
-        </CodePreview>
-
-        <h2 id="date-range" className="mt-12 scroll-mt-20 text-3xl font-bold">
-          Date Range
-        </h2>
-        <p className="mt-4 text-slate-600 dark:text-slate-400">
-          Use two date pickers to select a date range (start date and end date).
-        </p>
-        <CodePreview code={dateRangePickerCode}>
-          <div className="flex items-center">
-            <div className="relative">
-              <input name="start" type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} className="block w-full rounded-l-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Select date start" />
-            </div>
-            <span className="mx-4 text-slate-500">to</span>
-            <div className="relative">
-              <input name="end" type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} className="block w-full rounded-r-lg border border-slate-300 bg-slate-50 p-2.5 text-sm text-slate-900 focus:border-blue-500 focus:ring-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500" placeholder="Select date end" />
-            </div>
-          </div>
-        </CodePreview>
+        <DatePickerClientComponent />
       </article>
 
       <RightSidebar headings={pageHeadings} />

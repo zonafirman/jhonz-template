@@ -35,7 +35,6 @@ export default function Navbar() {
   }, []);
 
   // State dan handler untuk theme switcher (contoh)
-  // const { theme, setTheme } = useTheme();
   const [theme, setTheme] = useState('light'); // Placeholder, ganti dengan useTheme
   const isDark = theme === 'dark';
 
