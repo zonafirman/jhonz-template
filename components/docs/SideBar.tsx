@@ -30,7 +30,7 @@ type CollapsibleSectionData = {
 /**
  * Union type for any item that can be rendered in the sidebar.
  */
-type SidebarItem = NavLinkData | CollapsibleSectionData;
+export type SidebarItem = NavLinkData | CollapsibleSectionData;
 
 // --- SIDEBAR DATA ---
 
@@ -38,7 +38,7 @@ type SidebarItem = NavLinkData | CollapsibleSectionData;
  * Data structure for the sidebar navigation items.
  * This array defines the content and structure of the sidebar.
  */
-const sidebarItems: SidebarItem[] = [
+export const sidebarItems: SidebarItem[] = [
   {
     type: 'collapsible',
     id: 'get-started',
@@ -86,6 +86,15 @@ const sidebarItems: SidebarItem[] = [
       { href: '/docs/components/toast', label: 'Toast' },
       { href: '/docs/components/toggle', label: 'Toggle' },
       { href: '/docs/components/tooltip', label: 'Tooltip' },
+    ],
+  },
+  {
+    type: 'collapsible',
+    id: 'sections',
+    label: 'Sections',
+    children: [
+      { href: '/docs/sections/HeroSections', label: 'Hero Sections' },
+      { href: '/docs/sections/TestimonialSections', label: 'Testimonial Sections' },
     ],
   },
 ] as const; // Using 'as const' for stricter typing

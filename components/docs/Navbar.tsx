@@ -2,19 +2,22 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Search, ChevronDown, Github, Moon, Sun, Menu, X } from 'lucide-react';
+import { Search, ChevronDown, Github, Moon, Sun, Menu, X, FileCode } from 'lucide-react';
+import SearchDialog from './SearchDialog';
 
 export default function Navbar() {
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const searchButtonRef = useRef<HTMLButtonElement>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  // Kita tidak lagi memerlukan ref untuk tombol search, karena dialog akan di-fokuskan secara otomatis
+  // const searchButtonRef = useRef<HTMLButtonElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
         event.preventDefault();
-        searchButtonRef.current?.focus();
+        setIsSearchOpen(true);
       }
     };
 
@@ -104,8 +107,8 @@ export default function Navbar() {
 
         {/* Tombol Search */}
         <button
-          ref={searchButtonRef}
-          className="hidden w-40 items-center justify-between rounded-md border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-500 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 sm:flex sm:w-64"
+          onClick={() => setIsSearchOpen(true)}
+          className="hidden w-40 cursor-pointer items-center justify-between rounded-md border border-slate-300 bg-slate-50 px-3 py-1.5 text-sm text-slate-500 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-slate-600 sm:flex sm:w-64"
         >
           <div className="flex items-center">
             <Search size={16} className="mr-2" />
@@ -173,6 +176,8 @@ export default function Navbar() {
           </div>
         </div>
       )}
+
+      <SearchDialog isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </header>
   );
 }

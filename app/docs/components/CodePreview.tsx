@@ -7,6 +7,7 @@ import Image from 'next/image';
 interface CodePreviewProps {
   children: React.ReactNode;
   code: string;
+  htmlCode?: string;
   fileName?: string;
 }
 
@@ -22,23 +23,23 @@ const DownloadIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export default function CodePreview({ children, code }: CodePreviewProps) {
-  const [showCode, setShowCode] = useState(false);
+export default function CodePreview({ children, code, htmlCode }: CodePreviewProps) {
+  const [activeTab, setActiveTab] = useState<'react' | 'html' | null>(null);
   const [isCopied, setIsCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(code).then(() => {
+  const handleCopy = (codeToCopy: string) => {
+    navigator.clipboard.writeText(codeToCopy).then(() => {
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     });
   };
 
-  const handleDownload = () => {
-    const blob = new Blob([code], { type: 'text/html' });
+  const handleDownload = (codeToDownload: string, extension: string) => {
+    const blob = new Blob([codeToDownload], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'code-snippet.html';
+    a.download = `code-snippet.${extension}`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -48,26 +49,67 @@ export default function CodePreview({ children, code }: CodePreviewProps) {
   return (
     <div className="mt-4">
       <div className="relative rounded-lg border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900">{children}</div>
-      <div className="mt-2">
-        <button onClick={() => setShowCode(!showCode)} className="flex items-center gap-2 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+      <div className="mt-2 flex gap-2">
+        <button onClick={() => setActiveTab(activeTab === 'react' ? null : 'react')} className="flex items-center gap-2 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
           <Image src="/next.svg" alt="Next.js Icon" width={40} height={40} className="dark:invert" />
+          <span></span>
         </button>
+        {htmlCode && (
+          <button onClick={() => setActiveTab(activeTab === 'html' ? null : 'html')} className="flex items-center gap-2 rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+            <svg className="h-6 w-6 text-[#E44D26]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.362 3.333L4.055 21h15.89l1.693-17.667H2.362zm16.43 15.834H6.254l-.22-2.292h10.89l.25-2.6h-8.5l-.22-2.292h9.16l.25-2.6H5.374l-.44-4.583h15.13l-1.205 12.583z" />
+            </svg>
+            <span>HTML</span>
+          </button>
+        )}
       </div>
-      {showCode && (
+      {activeTab === 'react' && (
         <Highlight theme={themes.nightOwl} code={code} language="jsx">
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <div className="relative mt-2">
               <div className="absolute right-2 top-2 z-10 flex gap-1">
-                <button onClick={handleCopy} className="inline-flex items-center gap-1.5 rounded-md bg-slate-800/70 p-2 text-xs text-slate-300 hover:bg-slate-700" title="Copy code">
+                <button onClick={() => handleCopy(code)} className="inline-flex items-center gap-1.5 rounded-md bg-slate-800/70 p-2 text-xs text-slate-300 hover:bg-slate-700" title="Copy code">
                   <CopyIcon />
                   {isCopied ? 'Copied!' : 'Copy'}
                 </button>
-                <button onClick={handleDownload} className="inline-flex items-center gap-1.5 rounded-md bg-slate-800/70 p-2 text-xs text-slate-300 hover:bg-slate-700" title="Download snippet">
+                <button onClick={() => handleDownload(code, 'jsx')} className="inline-flex items-center gap-1.5 rounded-md bg-slate-800/70 p-2 text-xs text-slate-300 hover:bg-slate-700" title="Download snippet">
                   <DownloadIcon />
                 </button>
               </div>
               <pre className={`${className} overflow-x-auto rounded-lg p-4 text-sm`} style={style}>
-                {tokens.map((line, i) => <div key={i} {...getLineProps({ line })}>{line.map((token, key) => <span key={key} {...getTokenProps({ token })} />)}</div>)}
+                {tokens.map((line, i) => (
+                  <div key={i} {...getLineProps({ line })}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token })} />
+                    ))}
+                  </div>
+                ))}
+              </pre>
+            </div>
+          )}
+        </Highlight>
+      )}
+      {activeTab === 'html' && htmlCode && (
+        <Highlight theme={themes.nightOwl} code={htmlCode} language="html">
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <div className="relative mt-2">
+              <div className="absolute right-2 top-2 z-10 flex gap-1">
+                <button onClick={() => handleCopy(htmlCode)} className="inline-flex items-center gap-1.5 rounded-md bg-slate-800/70 p-2 text-xs text-slate-300 hover:bg-slate-700" title="Copy code">
+                  <CopyIcon />
+                  {isCopied ? 'Copied!' : 'Copy'}
+                </button>
+                <button onClick={() => handleDownload(htmlCode, 'html')} className="inline-flex items-center gap-1.5 rounded-md bg-slate-800/70 p-2 text-xs text-slate-300 hover:bg-slate-700" title="Download snippet">
+                  <DownloadIcon />
+                </button>
+              </div>
+              <pre className={`${className} overflow-x-auto rounded-lg p-4 text-sm`} style={style}>
+                {tokens.map((line, i) => (
+                  <div key={i} {...getLineProps({ line })}>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token })} />
+                    ))}
+                  </div>
+                ))}
               </pre>
             </div>
           )}

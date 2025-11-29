@@ -1,24 +1,24 @@
-import type { Metadata } from 'next';
+'use client';
 
+import { usePathname } from 'next/navigation';
 import Sidebar from '@/components/docs/SideBar';
 import Navbar from '@/components/docs/Navbar';
-import RightSidebar from '@/components/docs/RightSideBar';
-
-export const metadata: Metadata = {
-  title: 'Jhonz Docs',
-  description: 'Documentation for Jhonz sass',
-};
 
 export default function DocsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  const isSectionsPage = pathname.startsWith('/docs/sections');
+
   return (
-    <> 
-     <Navbar />
+    <>
+      <Navbar />
       <Sidebar />
-      <main className="pl-72 pr-64 pb-10 pt-24">{children}</main>
+      <main className={isSectionsPage ? 'pl-72 pb-10 pt-24' : 'pl-72 pr-64 pb-10 pt-24'}>
+        {children}
+      </main>
     </>
   );
 }

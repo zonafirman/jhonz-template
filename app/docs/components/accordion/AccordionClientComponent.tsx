@@ -315,7 +315,8 @@ export default function AccordionClientComponent() {
   ];
 
   const accordionSections = [
-    { id: 'simple-accordion', title: 'Simple Accordion', description: 'A basic accordion where only one item can be open at a time. Clicking another item will close the currently open one.', code: simpleAccordionCode, content: (
+    { id: 'simple-accordion', title: 'Simple Accordion', description: 'A basic accordion where only one item can be open at a time. Clicking another item will close the currently open one.', code: simpleAccordionCode,
+    content: (
       <div className="w-full max-w-md rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         {accordionItems.map((item, index) => (
           <AccordionItem key={item.id} title={item.title} isOpen={simpleOpen === item.id} onClick={() => handleToggle(setSimpleOpen, item.id)} className={index < accordionItems.length - 1 ? 'border-b border-slate-200 dark:border-slate-800' : ''}>
@@ -324,7 +325,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'always-open', title: 'Always Open', description: 'In this variant, each accordion item can be opened or closed independently. Opening one item will not close the others.', code: alwaysOpenAccordionCode, content: (
+    { id: 'always-open', title: 'Always Open', description: 'In this variant, each accordion item can be opened or closed independently. Opening one item will not close the others.', code: alwaysOpenAccordionCode,
+    content: (
       <div className="w-full max-w-md rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         {accordionItems.map((item, index) => (
           <AccordionItem key={item.id} title={item.title} isOpen={alwaysOpen.includes(item.id)} onClick={() => handleAlwaysOpenToggle(item.id)} className={index < accordionItems.length - 1 ? 'border-b border-slate-200 dark:border-slate-800' : ''}>
@@ -333,7 +335,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'flush-accordion', title: 'Flush Accordion', description: 'Remove the default `border` and `border-radius` to create an accordion that is edge-to-edge with its parent container.', code: flushAccordionCode, content: (
+    { id: 'flush-accordion', title: 'Flush Accordion', description: 'Remove the default `border` and `border-radius` to create an accordion that is edge-to-edge with its parent container.', code: flushAccordionCode,
+    content: (
       <div className="w-full max-w-md">
         {accordionItems.map((item, index) => (
           <AccordionItem key={item.id} title={item.title} isOpen={flushOpen === item.id} onClick={() => handleToggle(setFlushOpen, item.id)} className={`border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 ${index === 0 ? 'rounded-t-lg' : ''} ${index === accordionItems.length - 1 ? 'rounded-b-lg border-b-0' : ''}`}>
@@ -342,7 +345,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'accordion-with-icons', title: 'Accordion with Icons', description: 'Add an icon next to the accordion title to provide additional visual context.', code: withIconsAccordionCode, content: (
+    { id: 'accordion-with-icons', title: 'Accordion with Icons', description: 'Add an icon next to the accordion title to provide additional visual context.', code: withIconsAccordionCode,
+    content: (
       <div className="w-full max-w-md rounded-lg border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
         <AccordionItem
           key="icon-item"
@@ -360,7 +364,8 @@ export default function AccordionClientComponent() {
         </AccordionItem>
       </div>
     )},
-    { id: 'styled-accordion', title: 'Styled Accordion', description: 'Customize the look and feel of the accordion to match your design. This example uses a different background for each item and an accent color for the title.', code: styledAccordionCode, content: (
+    { id: 'styled-accordion', title: 'Styled Accordion', description: 'Customize the look and feel of the accordion to match your design. This example uses a different background for each item and an accent color for the title.', code: styledAccordionCode,
+    content: (
       <div className="w-full max-w-md space-y-2">
         {accordionItems.map(item => (
           <AccordionItem key={item.id} title={item.title} isOpen={styledOpen === item.id} onClick={() => handleToggle(setStyledOpen, item.id)} className="rounded-lg bg-slate-100 dark:bg-slate-800" buttonClassName="text-indigo-600 dark:text-indigo-400 font-bold" contentClassName="text-slate-600 dark:text-slate-300">
@@ -369,7 +374,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'modern-accordion', title: 'Modern Accordion', description: 'A sleek, professional design for 2025. It features a clean separation between items, a left border accent on hover/focus, and distinct button/content backgrounds for a layered feel.', code: modernAccordionCode, content: (
+    { id: 'modern-accordion', title: 'Modern Accordion', description: 'A sleek, professional design for 2025. It features a clean separation between items, a left border accent on hover/focus, and distinct button/content backgrounds for a layered feel.', code: modernAccordionCode,
+    content: (
       <div className="w-full max-w-md space-y-3">
         {accordionItems.map(item => (
           <div key={item.id} className="border-l-2 border-transparent transition-colors duration-300 has-[button:focus-visible]:border-indigo-500 has-[button:hover]:border-indigo-500">
@@ -384,7 +390,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'gradient-accent-accordion', title: 'Gradient Accent', description: "This accordion uses a subtle gradient background in the content area and a clean, card-like appearance for each item. It's a modern and professional design that adds a touch of depth and elegance.", code: gradientAccentAccordionCode, content: (
+    { id: 'gradient-accent-accordion', title: 'Gradient Accent', description: "This accordion uses a subtle gradient background in the content area and a clean, card-like appearance for each item. It's a modern and professional design that adds a touch of depth and elegance.", code: gradientAccentAccordionCode,
+    content: (
       <div className="w-full max-w-md space-y-2">
         {accordionItems.map(item => (
           <AccordionItem
@@ -398,7 +405,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'spotlight-accordion', title: 'Spotlight Accordion', description: 'This accordion uses a spotlight effect that follows the cursor, creating an engaging and interactive experience. The subtle glow highlights the active item, making it perfect for dark-themed interfaces that need a touch of modern elegance.', code: spotlightAccordionCode, content: (
+    { id: 'spotlight-accordion', title: 'Spotlight Accordion', description: 'This accordion uses a spotlight effect that follows the cursor, creating an engaging and interactive experience. The subtle glow highlights the active item, making it perfect for dark-themed interfaces that need a touch of modern elegance.', code: spotlightAccordionCode,
+    content: (
       <div className="w-full max-w-md space-y-2">
         {accordionItems.map(item => (
           <div
@@ -416,7 +424,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'timeline-accordion', title: 'Timeline Accordion', description: 'The "Timeline Accordion" presents information in a vertical timeline format. Each item represents a point in time, and clicking it reveals more details. This design is perfect for showcasing project milestones, company history, or any chronological data in a professional and visually engaging way.', code: timelineAccordionCode, content: (
+    { id: 'timeline-accordion', title: 'Timeline Accordion', description: 'The "Timeline Accordion" presents information in a vertical timeline format. Each item represents a point in time, and clicking it reveals more details. This design is perfect for showcasing project milestones, company history, or any chronological data in a professional and visually engaging way.', code: timelineAccordionCode,
+    content: (
       <div className="w-full max-w-md">
         <div className="relative space-y-8">
           <div className="absolute left-3 top-4 h-full w-0.5 bg-slate-200 dark:bg-slate-700" />
@@ -438,7 +447,8 @@ export default function AccordionClientComponent() {
         </div>
       </div>
     )},
-    { id: 'kinetic-accordion', title: 'Kinetic Accordion', description: 'The "Kinetic Accordion" is a modern and professional design for 2025, focusing on subtle motion to enhance user experience. When an item is opened, both the leading and trailing icons animate smoothly. The content panel reveals itself with a gentle easing effect, creating a sense of fluidity and responsiveness.', code: kineticAccordionCode, content: (
+    { id: 'kinetic-accordion', title: 'Kinetic Accordion', description: 'The "Kinetic Accordion" is a modern and professional design for 2025, focusing on subtle motion to enhance user experience. When an item is opened, both the leading and trailing icons animate smoothly. The content panel reveals itself with a gentle easing effect, creating a sense of fluidity and responsiveness.', code: kineticAccordionCode,
+    content: (
       <div className="w-full max-w-md space-y-2">
         {accordionItems.map(item => (
           <div key={item.id} className="group rounded-lg bg-slate-100 dark:bg-slate-800" data-state={kineticOpen === item.id ? 'open' : 'closed'}>
@@ -454,7 +464,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'bento-grid-accordion', title: 'Bento Grid Accordion', description: 'Inspired by the modern bento layout trend, this accordion presents its content in a structured grid. When expanded, it reveals not just the main content but also related data points or actions in separate, organized cells. This is perfect for displaying complex information like project statuses or feature details in a clean, professional, and easy-to-scan format for 2025.', code: bentoGridAccordionCode, content: (
+    { id: 'bento-grid-accordion', title: 'Bento Grid Accordion', description: 'Inspired by the modern bento layout trend, this accordion presents its content in a structured grid. When expanded, it reveals not just the main content but also related data points or actions in separate, organized cells. This is perfect for displaying complex information like project statuses or feature details in a clean, professional, and easy-to-scan format for 2025.', code: bentoGridAccordionCode,
+    content: (
       <div className="w-full max-w-lg space-y-3">
         {bentoItems.map(item => (
           <AccordionItem
@@ -485,7 +496,8 @@ export default function AccordionClientComponent() {
         ))}
       </div>
     )},
-    { id: 'frosted-glass-accordion', title: 'Frosted Glass Accordion', description: 'Achieve a modern, glassmorphism effect with the "Frosted Glass Accordion." This design uses a semi-transparent, blurred background (`backdrop-blur`) to create a sense of depth. It\'s highly effective when placed over a colorful or image-based background, making it a professional and stylish choice for 2025.', code: frostedAccordionCode, content: (
+    { id: 'frosted-glass-accordion', title: 'Frosted Glass Accordion', description: 'Achieve a modern, glassmorphism effect with the "Frosted Glass Accordion." This design uses a semi-transparent, blurred background (`backdrop-blur`) to create a sense of depth. It\'s highly effective when placed over a colorful or image-based background, making it a professional and stylish choice for 2025.', code: frostedAccordionCode,
+    content: (
       <div className="flex w-full max-w-md items-center justify-center rounded-xl bg-gradient-to-r from-purple-400 to-indigo-500 p-8">
         <div className="w-full space-y-2">
           {accordionItems.map(item => (
@@ -501,7 +513,8 @@ export default function AccordionClientComponent() {
         </div>
       </div>
     )},
-    { id: 'inset-accordion', title: 'Inset Accordion', description: 'Desain modern untuk 2025 ini menggunakan layout "inset" di mana item-item akordeon ditempatkan di dalam sebuah kontainer dengan latar belakang yang kontras. Setiap item memiliki `box-shadow` halus, menciptakan efek mengambang yang elegan dan memberikan kedalaman visual.', code: insetAccordionCode, content: (
+    { id: 'inset-accordion', title: 'Inset Accordion', description: 'Desain modern untuk 2025 ini menggunakan layout "inset" di mana item-item akordeon ditempatkan di dalam sebuah kontainer dengan latar belakang yang kontras. Setiap item memiliki `box-shadow` halus, menciptakan efek mengambang yang elegan dan memberikan kedalaman visual.', code: insetAccordionCode,
+    content: (
       <div className="w-full max-w-md space-y-2 rounded-xl bg-slate-100 p-2 dark:bg-slate-800">
         {accordionItems.map(item => (
           <AccordionItem
