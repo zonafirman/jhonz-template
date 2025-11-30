@@ -5,19 +5,19 @@ import HeroSectionsClientComponent from './HeroSectionsClientComponent';
 
 export const metadata: Metadata = {
   title: 'React Hero Section - Tailwind CSS | Jhonz Template',
-  description: 'Documentation and examples for hero sections built with React and Tailwind CSS. Includes a variety of styles like simple, with image, background image, and modern layouts for 2025.',
-  keywords: ['react hero section', 'tailwind css hero', 'landing page component', 'ui component', 'jhonz template'],
+  description: 'Documentation and examples for hero sections built with React and Tailwind CSS. Includes a variety of styles like simple, with image, background image, and modern, interactive layouts for 2025.',
+  keywords: ['react hero section', 'tailwind css hero', 'interactive hero section', 'modern hero 2025', 'landing page component', 'ui component', 'jhonz template'],
   authors: [{ name: 'Zona Firman', url: 'https://zona-firman.vercel.app' }],
   openGraph: {
     title: 'React Hero Section - Tailwind CSS | Jhonz Template',
-    description: 'A variety of modern and customizable hero sections built with React and Tailwind CSS.',
+    description: 'A variety of modern, interactive, and customizable hero sections built with React and Tailwind CSS.',
   },
 };
 
 export default function HeroSectionsPage() {
   return (
     <div className="flex w-full">
-      <article className="min-w-0 flex-1">
+      <article className="min-w-0 flex-1 pe-4">
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center space-x-2 text-sm text-slate-500">
           <Link href="/docs" className="block transition hover:text-slate-700">
             Documentation
