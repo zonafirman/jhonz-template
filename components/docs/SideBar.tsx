@@ -94,6 +94,7 @@ export const sidebarItems: SidebarItem[] = [
     label: 'Sections',
     children: [
       { href: '/docs/sections/HeroSections', label: 'Hero Sections' },
+      { href: '/docs/sections/FeatureSections', label: 'Feature Sections' },
       { href: '/docs/sections/TestimonialSections', label: 'Testimonial Sections' },
     ],
   },

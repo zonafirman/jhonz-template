@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import CodePreview from '@/app/docs/components/CodePreview';
 
 const simpleTestimonialCode = `<section class="bg-white dark:bg-slate-900">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
-        <figure class="max-w-screen-md mx-auto">
+    <div class="max-w-7xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
+        <figure class="max-w-3xl mx-auto">
             <svg class="h-12 mx-auto mb-3 text-slate-400 dark:text-slate-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H10V18H0Z" fill="currentColor"/>
             </svg> 
@@ -25,14 +25,14 @@ const simpleTestimonialCode = `<section class="bg-white dark:bg-slate-900">
 </section>`;
 
 const gridTestimonialCode = `<section class="bg-white dark:bg-slate-900">
-    <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
-        <div class="max-w-screen-md mb-8 lg:mb-16">
+    <div class="max-w-7xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
+        <div class="max-w-3xl mb-8 lg:mb-16">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-slate-900 dark:text-white">Testimonials from our users</h2>
             <p class="text-slate-500 sm:text-xl dark:text-slate-400">Hear from our satisfied customers about their experience with our products and services.</p>
         </div>
         <div class="grid gap-8 md:grid-cols-2">
             <figure class="flex flex-col p-8 bg-slate-50 border border-slate-200 rounded-lg dark:bg-slate-800 dark:border-slate-700">
-                <blockquote class="flex-grow">
+                <blockquote class="grow">
                     <p class="text-lg font-medium text-slate-900 dark:text-white">"The attention to detail in this template is incredible. It's modern, clean, and highly performant. I highly recommend it to any developer."</p>
                 </blockquote>
                 <figcaption class="flex items-center mt-6 space-x-3">
@@ -41,7 +41,7 @@ const gridTestimonialCode = `<section class="bg-white dark:bg-slate-900">
                 </figcaption>
             </figure>
             <figure class="flex flex-col p-8 bg-slate-50 border border-slate-200 rounded-lg dark:bg-slate-800 dark:border-slate-700">
-                <blockquote class="flex-grow">
+                <blockquote class="grow">
                     <p class="text-lg font-medium text-slate-900 dark:text-white">"As a designer, I appreciate the aesthetic and usability. The components are not only functional but also beautiful."</p>
                 </blockquote>
                 <figcaption class="flex items-center mt-6 space-x-3">
@@ -61,7 +61,7 @@ const modernTestimonial2025Code = `<section class="bg-slate-900 py-16 sm:py-24">
         </div>
         <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <figure class="flex flex-col rounded-xl bg-slate-800/50 p-8">
-                <blockquote class="flex-grow text-white">
+                <blockquote class="grow text-white">
                     <p>"The design is clean, modern, and the code is top-notch. It's the perfect starting point for any project."</p>
                 </blockquote>
                 <figcaption class="mt-6 flex items-center gap-x-4">
@@ -84,8 +84,8 @@ const modernTestimonial2025Code = `<section class="bg-slate-900 py-16 sm:py-24">
 </section>`;
 
 const testimonialWithLogosCode = `<section class="bg-white dark:bg-slate-900">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-        <figure class="max-w-screen-lg mx-auto">
+    <div class="py-8 px-4 mx-auto max-w-7xl text-center lg:py-16 lg:px-6">
+        <figure class="max-w-5xl mx-auto">
             <svg class="h-12 mx-auto mb-3 text-slate-400 dark:text-slate-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H10V18H0Z" fill="currentColor"/>
             </svg> 
@@ -110,14 +110,14 @@ const testimonialWithLogosCode = `<section class="bg-white dark:bg-slate-900">
 </section>`;
 
 const testimonialCardWithGradientCode = `<section class="relative bg-slate-900 py-16 sm:py-24">
-    <div class="absolute inset-0 bg-grid-slate-800 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
+    <div class="absolute inset-0 bg-grid-slate-800 mask-[linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Loved by Developers Worldwide</h2>
             <p class="mt-4 text-lg leading-8 text-slate-400">A standout testimonial card with a glowing gradient border, perfect for highlighting a key customer story.</p>
         </div>
         <div class="mx-auto mt-16 max-w-2xl">
-            <div class="relative rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
+            <div class="relative rounded-2xl bg-linear-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
                 <figure class="rounded-xl bg-slate-900 p-8">
                     <blockquote class="text-xl font-semibold leading-8 text-white">
                         <p>"This is the template I've been dreaming of. The code quality is exceptional, the design is stunning, and the developer experience is second to none. It's saved me weeks of work."</p>
@@ -333,7 +333,7 @@ const scrollingTickerTestimonialCode = `<section class="relative w-full overflow
         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">A Constant Stream of Praise</h2>
         <p class="mt-4 text-lg leading-8 text-slate-400">An auto-scrolling ticker layout for 2025, showcasing a continuous flow of customer feedback.</p>
     </div>
-    <div class="mt-16 flex w-max animate-marquee gap-8 [animation-duration:40s] hover:[animation-play-state:paused]">
+    <div class="mt-16 flex w-max animate-marquee gap-8 animation-duration-[40s] hover:paused">
         <!-- First set of testimonials -->
         <figure class="flex-none w-full max-w-sm rounded-2xl bg-slate-800 p-6">
             <blockquote class="text-white"><p>"The scrolling feature is mesmerizing! It's a modern and engaging way to display feedback."</p></blockquote>
@@ -377,7 +377,7 @@ const testimonial3DCardCode = `<section class="bg-slate-900 text-white py-20 sm:
         </div>
         <div class="mt-16 flex justify-center">
             <div class="perspective-midrange">
-                <figure class="group relative h-auto min-h-[20rem] w-full max-w-lg rounded-xl bg-slate-800 p-8 shadow-2xl transition-transform duration-500 transform-3d hover:transform-[rotateY(15deg)_rotateX(-5deg)]">
+                <figure class="group relative h-auto min-h-80 w-full max-w-lg rounded-xl bg-slate-800 p-8 shadow-2xl transition-transform duration-500 transform-3d hover:transform-[rotateY(15deg)_rotateX(-5deg)]">
                     <blockquote class="text-lg font-semibold leading-7 text-white">
                         <p>"The 3D effect on this testimonial card is mind-blowing. It's a creative and memorable way to showcase customer feedback. Jhonz Template continues to push the boundaries of web design."</p>
                     </blockquote>
@@ -486,7 +486,7 @@ const videoTestimonialsData = [
 
 const auroraTestimonialCode = `<section class="relative bg-slate-900 py-20 sm:py-32 overflow-hidden">
     <div class="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2">
-        <div class="w-160 h-160 bg-gradient-to-tr from-violet-600 to-blue-600 rounded-full animate-spin-slow opacity-30 blur-3xl"></div>
+        <div class="w-160 h-160 bg-linear-to-tr from-violet-600 to-blue-600 rounded-full animate-spin-slow opacity-30 blur-3xl"></div>
     </div>
     <div class="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2">
         <div class="w-160 h-160 bg-gradient-to-tr from-cyan-400 to-emerald-400 rounded-full animate-spin-slow-reverse opacity-30 blur-3xl"></div>
@@ -541,8 +541,8 @@ export default function TestimonialSectionsClientComponent() {
       <p className="mt-4 text-slate-600 dark:text-slate-400">A clean and focused testimonial section with a quote, author, and title.</p>
       <CodePreview code={simpleTestimonialCode}>
         <section className="bg-white dark:bg-slate-900">
-          <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-6 lg:py-16">
-            <figure className="mx-auto max-w-screen-md">
+          <div className="mx-auto max-w-7xl px-4 py-8 text-center lg:px-6 lg:py-16">
+            <figure className="mx-auto max-w-3xl">
               <svg className="mx-auto mb-3 h-12 text-slate-400 dark:text-slate-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H10V18H0Z" fill="currentColor" />
               </svg>
@@ -567,14 +567,14 @@ export default function TestimonialSectionsClientComponent() {
       <p className="mt-4 text-slate-600 dark:text-slate-400">Display multiple testimonials in a modern grid layout to showcase social proof effectively.</p>
       <CodePreview code={gridTestimonialCode}>
         <section className="bg-white dark:bg-slate-900">
-          <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
-            <div className="mb-8 max-w-screen-md lg:mb-16">
+          <div className="mx-auto max-w-7xl px-4 py-8 lg:px-6 lg:py-16">
+            <div className="mb-8 max-w-3xl lg:mb-16">
               <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Testimonials from our users</h2>
               <p className="text-slate-500 sm:text-xl dark:text-slate-400">Hear from our satisfied customers about their experience with our products and services.</p>
             </div>
             <div className="grid gap-8 md:grid-cols-2">
               <figure className="flex flex-col rounded-lg border border-slate-200 bg-slate-50 p-8 dark:border-slate-700 dark:bg-slate-800">
-                <blockquote className="flex-grow">
+                <blockquote className="grow">
                   <p className="text-lg font-medium text-slate-900 dark:text-white">&quot;The attention to detail in this template is incredible. It&apos;s modern, clean, and highly performant. I highly recommend it to any developer.&quot;</p>
                 </blockquote>
                 <figcaption className="mt-6 flex items-center space-x-3">
@@ -583,7 +583,7 @@ export default function TestimonialSectionsClientComponent() {
                 </figcaption>
               </figure>
               <figure className="flex flex-col rounded-lg border border-slate-200 bg-slate-50 p-8 dark:border-slate-700 dark:bg-slate-800">
-                <blockquote className="flex-grow">
+                <blockquote className="grow">
                   <p className="text-lg font-medium text-slate-900 dark:text-white">&quot;As a designer, I appreciate the aesthetic and usability. The components are not only functional but also beautiful.&quot;</p>
                 </blockquote>
                 <figcaption className="mt-6 flex items-center space-x-3">
@@ -609,7 +609,7 @@ export default function TestimonialSectionsClientComponent() {
             </div>
             <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <figure className="flex flex-col rounded-xl bg-slate-800/50 p-8">
-                <blockquote className="flex-grow text-white">
+                <blockquote className="grow text-white">
                   <p>&quot;The design is clean, modern, and the code is top-notch. It&apos;s the perfect starting point for any project.&quot;</p>
                 </blockquote>
                 <figcaption className="mt-6 flex items-center gap-x-4">
@@ -638,8 +638,8 @@ export default function TestimonialSectionsClientComponent() {
       <p className="mt-4 text-slate-600 dark:text-slate-400">Kombinasikan kutipan testimoni yang kuat dengan deretan logo perusahaan untuk membangun kepercayaan dan kredibilitas secara maksimal.</p>
       <CodePreview code={testimonialWithLogosCode}>
         <section className="bg-white dark:bg-slate-900">
-          <div className="mx-auto max-w-screen-xl px-4 py-8 text-center lg:px-6 lg:py-16">
-            <figure className="mx-auto max-w-screen-lg">
+          <div className="mx-auto max-w-7xl px-4 py-8 text-center lg:px-6 lg:py-16">
+            <figure className="mx-auto max-w-5xl">
               <svg className="mx-auto mb-3 h-12 text-slate-400 dark:text-slate-600" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H10V18H0Z" fill="currentColor" />
               </svg>
@@ -668,14 +668,14 @@ export default function TestimonialSectionsClientComponent() {
       <p className="mt-4 text-slate-600 dark:text-slate-400">Kartu testimoni yang menonjol dengan batas gradien bercahaya, sempurna untuk menyoroti kisah pelanggan utama dengan gaya modern 2025.</p>
       <CodePreview code={testimonialCardWithGradientCode}>
         <section className="relative bg-slate-900 py-16 sm:py-24">
-          <div className="absolute inset-0 bg-grid-slate-800 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
+          <div className="absolute inset-0 bg-grid-slate-800 mask-[linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Loved by Developers Worldwide</h2>
               <p className="mt-4 text-lg leading-8 text-slate-400">A standout testimonial card with a glowing gradient border, perfect for highlighting a key customer story.</p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl">
-              <div className="relative rounded-2xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
+              <div className="relative rounded-2xl bg-linear-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
                 <figure className="rounded-xl bg-slate-900 p-8">
                   <blockquote className="text-xl font-semibold leading-8 text-white"><p>&quot;This is the template I&apos;ve been dreaming of. The code quality is exceptional, the design is stunning, and the developer experience is second to none. It&apos;s saved me weeks of work.&quot;</p></blockquote>
                   <figcaption className="mt-8 flex items-center gap-x-4">
@@ -846,7 +846,7 @@ export default function TestimonialSectionsClientComponent() {
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">A Constant Stream of Praise</h2>
             <p className="mt-4 text-lg leading-8 text-slate-400">An auto-scrolling ticker layout for 2025, showcasing a continuous flow of customer feedback.</p>
           </div>
-          <div className="mt-16 flex w-max animate-marquee gap-8 [animation-duration:40s] hover:[animation-play-state:paused]">
+          <div className="mt-16 flex w-max animate-marquee gap-8 animation-duration-[40s] hover:paused">
             {[...scrollingTestimonialsData, ...scrollingTestimonialsData].map((testimonial, index) => (
               <figure key={index} className="w-full max-w-sm flex-none rounded-2xl bg-slate-800 p-6">
                 <blockquote className="text-white">
@@ -877,7 +877,7 @@ export default function TestimonialSectionsClientComponent() {
             </div>
             <div className="mt-16 flex justify-center">
               <div className="perspective-midrange">
-                <figure className="group relative h-auto min-h-[20rem] w-full max-w-lg rounded-xl bg-slate-800 p-8 shadow-2xl transition-transform duration-500 transform-3d hover:transform-[rotateY(15deg)_rotateX(-5deg)]">
+                <figure className="group relative h-auto min-h-80 w-full max-w-lg rounded-xl bg-slate-800 p-8 shadow-2xl transition-transform duration-500 transform-3d hover:transform-[rotateY(15deg)_rotateX(-5deg)]">
                   <blockquote className="text-lg font-semibold leading-7 text-white">
                     <p>&quot;The 3D effect on this testimonial card is mind-blowing. It&apos;s a creative and memorable way to showcase customer feedback. Jhonz Template continues to push the boundaries of web design.&quot;</p>
                   </blockquote>
@@ -895,7 +895,7 @@ export default function TestimonialSectionsClientComponent() {
       <h2 id="bento-grid-testimonial" className="mt-12 scroll-mt-20 text-3xl font-bold">
         Bento Grid Testimonial
       </h2>
-      <p className="mt-4 text-slate-600 dark:text-slate-400">Tata letak "Bento Grid" yang interaktif untuk tahun 2025. Arahkan kursor ke kartu untuk melihatnya membesar, menciptakan pengalaman yang modern dan menarik.</p>
+      <p className="mt-4 text-slate-600 dark:text-slate-400">Tata letak &quot;Bento Grid&quot; yang interaktif untuk tahun 2025. Arahkan kursor ke kartu untuk melihatnya membesar, menciptakan pengalaman yang modern dan menarik.</p>
       <CodePreview code={bentoGridTestimonialCode}>
         <section className="bg-slate-900 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -978,7 +978,7 @@ export default function TestimonialSectionsClientComponent() {
                       <svg className="h-12 w-12 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
                     </button>
                   </div>
-                  <blockquote className="mt-4 flex-grow text-white">
+                  <blockquote className="mt-4 grow text-white">
                     <p>&quot;{testimonial.quote}&quot;</p>
                   </blockquote>
                   <figcaption className="mt-4 flex items-center gap-x-3">
@@ -999,10 +999,10 @@ export default function TestimonialSectionsClientComponent() {
       <CodePreview code={auroraTestimonialCode}>
         <section className="relative overflow-hidden bg-slate-900 py-20 sm:py-32">
           <div className="absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2">
-            <div className="h-160 w-160 animate-spin-slow rounded-full bg-gradient-to-tr from-violet-600 to-blue-600 opacity-30 blur-3xl"></div>
+            <div className="h-160 w-160 animate-spin-slow rounded-full bg-linear-to-tr from-violet-600 to-blue-600 opacity-30 blur-3xl"></div>
           </div>
           <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2">
-            <div className="h-160 w-160 animate-spin-slow-reverse rounded-full bg-gradient-to-tr from-cyan-400 to-emerald-400 opacity-30 blur-3xl"></div>
+            <div className="h-160 w-160 animate-spin-slow-reverse rounded-full bg-linear-to-tr from-cyan-400 to-emerald-400 opacity-30 blur-3xl"></div>
           </div>
           <div className="relative mx-auto max-w-4xl px-4 text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Voices of Innovation</h2>
