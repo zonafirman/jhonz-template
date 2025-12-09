@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Sidebar from '@/components/docs/SideBar';
 import { Search, ChevronDown, Github, Moon, Sun, Menu, X, FileCode } from 'lucide-react';
 import SearchDialog from './SearchDialog';
 
@@ -153,27 +154,8 @@ export default function Navbar() {
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="border-t border-slate-200 dark:border-slate-800 md:hidden">
-          <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-             <Link
-              href="/docs/introduction"
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100"
-            >
-              Docs
-            </Link>
-            <Link
-              href="/blog"
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/guides"
-              className="block rounded-md px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100"
-            >
-              Guides
-            </Link>
-          </div>
+        <div className="absolute top-16 left-0 h-[calc(100vh-4rem)] w-full border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 lg:hidden">
+          <Sidebar isMobile />
         </div>
       )}
 

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function TestimonialSectionsPage() {
   return (
     <div className="flex w-full">
-      <article className="min-w-0 flex-1 pe-3">
+      <article className="min-w-0 flex-1">
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center space-x-2 text-sm text-slate-500">
           <Link href="/docs" className="block transition hover:text-slate-700">
             Documentation

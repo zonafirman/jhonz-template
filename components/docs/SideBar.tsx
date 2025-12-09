@@ -31,6 +31,7 @@ type CollapsibleSectionData = {
  * Union type for any item that can be rendered in the sidebar.
  */
 export type SidebarItem = NavLinkData | CollapsibleSectionData;
+type SidebarProps = { isMobile?: boolean };
 
 // --- SIDEBAR DATA ---
 
@@ -201,12 +202,12 @@ const CollapsibleSection = ({ item, pathname, isOpen, onToggle }: { item: Collap
  * The main sidebar component for documentation navigation.
  * It's a client component that uses hooks to manage its state based on the current URL.
  */
-export default function Sidebar() {
+export default function Sidebar({ isMobile = false }: SidebarProps) {
   const pathname = usePathname();
   const navRef = useRef<HTMLElement>(null);
  
   // Initialize state to be consistent on server and client to avoid hydration errors.
-  const [openSections, setOpenSections] = useState<OpenSections>({} as OpenSections);
+  const [openSections, setOpenSections] = useState<OpenSections>(() => ({} as OpenSections));
   const [isInitialised, setIsInitialised] = useState(false);
  
   // Determine the initial open state on the client side after hydration.
@@ -267,7 +268,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="fixed top-16 left-0 z-10 h-[calc(100vh-4rem)] w-64 border-r border-slate-200 bg-slate-50">
+    <aside className={!isMobile ? "fixed top-16 left-0 z-10 hidden h-[calc(100vh-4rem)] w-64 border-r border-slate-200 bg-slate-50 lg:block" : "h-full"}>
       <nav ref={navRef} className="h-full overflow-y-auto p-4 space-y-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {sidebarItems.map((item) => {
           if (item.type === 'link') {

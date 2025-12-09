@@ -59,7 +59,7 @@ const modernTestimonial2025Code = `<section class="bg-slate-900 py-16 sm:py-24">
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">What Our Customers Say</h2>
             <p class="mt-4 text-lg leading-8 text-slate-400">A modern and professional testimonial section for 2025, featuring a dark theme and star ratings.</p>
         </div>
-        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <figure class="flex flex-col rounded-xl bg-slate-800/50 p-8">
                 <blockquote class="grow text-white">
                     <p>"The design is clean, modern, and the code is top-notch. It's the perfect starting point for any project."</p>
@@ -138,7 +138,7 @@ const interactiveTestimonialCode = `<section class="bg-slate-900 py-16 sm:py-24"
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">A Wall of Love from Our Users</h2>
             <p class="mt-4 text-lg leading-8 text-slate-400">An interactive and unique testimonial layout for 2025. Click on an avatar to see their story.</p>
         </div>
-        <div class="mt-16 flow-root">
+        <div class="mt-16 flow-root w-full">
             <div class="-m-2">
                 <div class="flex flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-x-6">
                     <!-- Avatars for selection -->
@@ -177,7 +177,7 @@ const carouselTestimonialCode = `<section class="bg-white dark:bg-slate-900 py-1
             <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">A modern, interactive carousel layout to showcase multiple testimonials in a compact and elegant way for 2025.</p>
         </div>
         <div class="mt-16 flow-root">
-            <div class="-mx-4 sm:-mx-6 lg:-mx-8">
+            <div class="w-full -mx-4 sm:-mx-6 lg:-mx-8">
                 <div class="flex overflow-x-auto space-x-8 px-4 sm:px-6 lg:px-8">
                     <figure class="flex-none w-full max-w-sm rounded-2xl bg-slate-50 dark:bg-slate-800 p-8">
                         <blockquote class="text-slate-900 dark:text-white">
@@ -225,7 +225,7 @@ const featuredGridTestimonialCode = `<section class="bg-slate-900 py-16 sm:py-24
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">The Future of Design is Here</h2>
             <p class="mt-4 text-lg leading-8 text-slate-400">A unique and interactive featured grid layout for 2025. Click a card to feature it.</p>
         </div>
-        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none md:grid-cols-3">
             <!-- Featured Testimonial -->
             <figure class="flex flex-col rounded-2xl bg-white/5 p-8 text-white lg:col-span-2">
                 <blockquote class="flex-auto text-lg font-semibold leading-8">
@@ -279,7 +279,7 @@ const masonryTestimonialCode = `<section class="bg-white dark:bg-slate-900 py-16
             <p class="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">A dynamic masonry grid layout for 2025, perfect for showcasing authentic feedback of all sizes.</p>
         </div>
         <div class="mx-auto mt-16 flow-root">
-            <div class="sm:columns-2 lg:columns-3 gap-8 space-y-8">
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
                 <figure class="rounded-2xl bg-slate-50 dark:bg-slate-800 p-8 break-inside-avoid">
                     <blockquote class="text-slate-900 dark:text-white">
                         <p>"The flexibility of this template is unmatched. I could build a unique-looking site in just a few hours. A must-have for any developer's toolkit."</p>
@@ -607,7 +607,7 @@ export default function TestimonialSectionsClientComponent() {
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">What Our Customers Say</h2>
               <p className="mt-4 text-lg leading-8 text-slate-400">A modern and professional testimonial section for 2025, featuring a dark theme and star ratings.</p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <figure className="flex flex-col rounded-xl bg-slate-800/50 p-8">
                 <blockquote className="grow text-white">
                   <p>&quot;The design is clean, modern, and the code is top-notch. It&apos;s the perfect starting point for any project.&quot;</p>
@@ -700,7 +700,7 @@ export default function TestimonialSectionsClientComponent() {
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">A Wall of Love from Our Users</h2>
               <p className="mt-4 text-lg leading-8 text-slate-400">An interactive and unique testimonial layout for 2025. Click on an avatar to see their story.</p>
             </div>
-            <div className="mt-16 flow-root">
+            <div className="mt-16 flow-root w-full">
               <div className="-m-2">
                 <div className="flex flex-wrap justify-center gap-x-4 gap-y-6 sm:gap-x-6">
                   {interactiveTestimonials.map((testimonial) => (
@@ -740,7 +740,7 @@ export default function TestimonialSectionsClientComponent() {
               <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">A modern, interactive carousel layout to showcase multiple testimonials in a compact and elegant way for 2025.</p>
             </div>
             <div className="mt-16 flow-root">
-              <div className="-mx-4 sm:-mx-6 lg:-mx-8">
+              <div className="w-full -mx-4 sm:-mx-6 lg:-mx-8">
                 <div className="flex space-x-8 overflow-x-auto px-4 sm:px-6 lg:px-8">
                   {carouselTestimonialsData.map((testimonial, index) => (
                     <figure key={index} className="w-full max-w-sm flex-none rounded-2xl bg-slate-50 p-8 dark:bg-slate-800">
@@ -774,7 +774,7 @@ export default function TestimonialSectionsClientComponent() {
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">The Future of Design is Here</h2>
               <p className="mt-4 text-lg leading-8 text-slate-400">A unique and interactive featured grid layout for 2025. Click a card to feature it.</p>
             </div>
-            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none md:grid-cols-3">
               {/* Featured Testimonial */}
               <figure className="flex flex-col rounded-2xl bg-white/5 p-8 text-white lg:col-span-2">
                 <blockquote className="flex-auto text-lg font-semibold leading-8">
@@ -816,7 +816,7 @@ export default function TestimonialSectionsClientComponent() {
               <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">A dynamic masonry grid layout for 2025, perfect for showcasing authentic feedback of all sizes.</p>
             </div>
             <div className="mx-auto mt-16 flow-root">
-              <div className="gap-8 space-y-8 sm:columns-2 lg:columns-3">
+              <div className="columns-1 gap-8 space-y-8 sm:columns-2 lg:columns-3">
                 {masonryTestimonialsData.map((testimonial, index) => (
                   <figure key={index} className="break-inside-avoid rounded-2xl bg-slate-50 p-8 dark:bg-slate-800">
                     <blockquote className="text-slate-900 dark:text-white">
@@ -973,7 +973,7 @@ export default function TestimonialSectionsClientComponent() {
               {videoTestimonialsData.map((testimonial, index) => (
                 <div key={index} className="flex flex-col rounded-2xl bg-white/5 p-6">
                   <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                    <Image src={testimonial.thumbnail} alt="Customer thumbnail" layout="fill" className="h-full w-full object-cover" />
+                    <Image src={testimonial.thumbnail} alt="Customer thumbnail" fill className="h-full w-full object-cover" />
                     <button className="absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity duration-300 hover:opacity-80">
                       <svg className="h-12 w-12 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
                     </button>

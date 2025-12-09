@@ -197,7 +197,7 @@ const futuristicGridHeroCode = `<section class="relative bg-slate-900 text-white
     <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_var(--x,50%)_var(--y,50%),rgba(100,116,139,0.15),transparent_40%)]"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
-            <div class="flex flex-col justify-center text-center lg:text-left lg:col-span-2">
+            <div class="flex flex-col justify-center text-center lg:text-left lg:col-span-2 order-last lg:order-first">
                 <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
                     Pioneering the Next Wave of Digital Innovation
                 </h1>
@@ -210,7 +210,7 @@ const futuristicGridHeroCode = `<section class="relative bg-slate-900 text-white
                     </a>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4 sm:gap-6">
+            <div class="grid grid-cols-2 gap-4 sm:gap-6 order-first lg:order-last">
                 <div class="rounded-xl bg-slate-800/50 p-4 sm:p-6 text-center transition-all duration-300 hover:bg-slate-800 hover:scale-105 hover:shadow-2xl hover:shadow-slate-500/20">
                     <div class="text-3xl sm:text-4xl font-bold text-slate-400">40%</div>
                     <p class="mt-2 text-sm font-medium text-slate-400">Faster Integration</p>
@@ -752,7 +752,7 @@ export default function HeroSectionsClientComponent() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_var(--x,50%)_var(--y,50%),rgba(100,116,139,0.15),transparent_40%)]" />
             <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-                <div className="flex flex-col justify-center text-center lg:col-span-2 lg:text-left">
+                <div className="order-last flex flex-col justify-center text-center lg:order-first lg:col-span-2 lg:text-left">
                   <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">Pioneering the Next Wave of Digital Innovation</h1>
                   <p className="mx-auto mt-6 max-w-2xl text-base text-slate-300 sm:text-lg lg:mx-0">A complex and futuristic grid layout for 2025. Combining a main content area with feature cards, creating an information-rich and ultra-modern look.</p>
                   <div className="mt-8 flex justify-center gap-4 lg:justify-start">
@@ -761,7 +761,7 @@ export default function HeroSectionsClientComponent() {
                     </a>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                <div className="order-first grid grid-cols-2 gap-4 sm:gap-6 lg:order-last">
                   <div className="rounded-xl bg-slate-800/50 p-4 text-center transition-all duration-300 hover:scale-105 hover:bg-slate-800 hover:shadow-2xl hover:shadow-slate-500/20 sm:p-6">
                     <div className="text-3xl font-bold text-slate-400 sm:text-4xl">40%</div>
                     <p className="mt-2 text-sm font-medium text-slate-400">Faster Integration</p>

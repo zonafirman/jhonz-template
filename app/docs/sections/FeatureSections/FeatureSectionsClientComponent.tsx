@@ -11,24 +11,42 @@ const simpleCenteredCode = `<section class="bg-white dark:bg-slate-900">
             <p class="text-slate-500 sm:text-xl dark:text-slate-400">Here at Jhonz, we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
         </div>
         <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            <div>
+            <div class="transition-transform duration-300 hover:scale-105">
                 <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
                     {/* SVG Icon */}
                 </div>
                 <h3 class="mb-2 text-xl font-bold dark:text-white">Marketing</h3>
                 <p class="text-slate-500 dark:text-slate-400">Plan and execute campaigns that resonate with your audience and drive engagement.</p>
             </div>
-            <div>
+            <div class="transition-transform duration-300 hover:scale-105">
                 <h3 class="mb-2 text-xl font-bold dark:text-white">Legal</h3>
                 <p class="text-slate-500 dark:text-slate-400">Manage legal documents and compliance with our secure and easy-to-use platform.</p>
             </div>
-            <div>
+            <div class="transition-transform duration-300 hover:scale-105">
                 <h3 class="mb-2 text-xl font-bold dark:text-white">Business</h3>
                 <p class="text-slate-500 dark:text-slate-400">Streamline your operations and scale your business with our integrated solutions.</p>
             </div>
         </div>
     </div>
 </section>`;
+
+const simpleCenteredFeatures = [
+  {
+    title: 'Marketing',
+    description: 'Plan and execute campaigns that resonate with your audience and drive engagement.',
+    icon: <svg className="h-5 w-5 text-primary-600 dark:text-primary-300 lg:h-6 lg:w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a1 1 0 001 1h12a1 1 0 001-1V5a1 1 0 000-2H4a1 1 0 00-1-1H3zm1 2v5h10V5H4zm11 8H4a1 1 0 100 2h11a1 1 0 100-2z" clipRule="evenodd"></path></svg>,
+  },
+  {
+    title: 'Legal',
+    description: 'Manage legal documents and compliance with our secure and easy-to-use platform.',
+    icon: <svg className="h-5 w-5 text-primary-600 dark:text-primary-300 lg:h-6 lg:w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clipRule="evenodd"></path></svg>,
+  },
+  {
+    title: 'Business',
+    description: 'Streamline your operations and scale your business with our integrated solutions.',
+    icon: <svg className="h-5 w-5 text-primary-600 dark:text-primary-300 lg:h-6 lg:w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 6V5a1 1 0 011-1h2a1 1 0 011 1v1h2a1 1 0 011 1v3.586l2.293-2.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L9 10.586V7a1 1 0 011-1h2V5H7a1 1 0 01-1-1z" clipRule="evenodd"></path><path d="M5.293 13.293A1 1 0 016.707 12l4 4a1 1 0 01-1.414 1.414L5.293 13.293zM9 10a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path></svg>,
+  },
+];
 
 const featureGridCode = `<section class="bg-slate-900 py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -37,7 +55,7 @@ const featureGridCode = `<section class="bg-slate-900 py-16 sm:py-24">
             <p class="mt-4 text-lg leading-8 text-slate-400">A powerful feature section with a grid layout, perfect for showcasing key benefits.</p>
         </div>
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+            <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3">
                 <div class="flex flex-col">
                     <dt class="text-base font-semibold leading-7 text-white">
                         <div class="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500">
@@ -128,7 +146,7 @@ const bentoGridFeatureCode = `<section class="bg-slate-900 py-16 sm:py-24">
             </p>
         </div>
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-5xl">
-            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                 <div class="lg:col-span-2 rounded-2xl bg-slate-800/50 p-8 transition-transform duration-300 hover:scale-105 hover:bg-slate-800">
                     {/* SVG Icon */}
                     <h3 class="mt-4 text-xl font-semibold text-white">Collaborative Inbox</h3>
@@ -156,7 +174,7 @@ const alternatingFeatureWithImageCode = `<section class="bg-white dark:bg-slate-
             </p>
         </div>
         <div class="mt-16 space-y-16">
-            <div class="grid gap-8 items-center lg:grid-cols-2">
+            <div class="grid gap-8 items-center md:grid-cols-2">
                 <div>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Intuitive Dashboard</h3>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Our dashboard is designed for ease of use. Manage all your projects, deployments, and settings from a single, intuitive interface. Get insights at a glance and take action quickly.</p>
@@ -165,7 +183,7 @@ const alternatingFeatureWithImageCode = `<section class="bg-white dark:bg-slate-
                     <Image class="w-full rounded-lg shadow-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/dashboard-mockup.svg" alt="Intuitive Dashboard" width={520} height={390} />
                 </div>
             </div>
-            <div class="grid gap-8 items-center lg:grid-cols-2">
+            <div class="grid gap-8 items-center md:grid-cols-2">
                 <div>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Seamless Collaboration</h3>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Invite your team and collaborate in real-time. With shared environments and granular permissions, you can work together securely and efficiently, no matter where you are.</p>
@@ -209,6 +227,11 @@ const interactiveFeatureTabsCode = `<section class="bg-white dark:bg-slate-900 p
         </div>
     </div>
 </section>`;
+
+const featureTabsCodeWithAnimation = interactiveFeatureTabsCode.replace(
+  '<Image class="w-full rounded-lg"',
+  '<Image class="w-full rounded-lg animate-fade-in"'
+);
 
 const featureTabsData = [
   {
@@ -531,27 +554,15 @@ export default function FeatureSectionsClientComponent() {
               <p className="text-slate-500 sm:text-xl dark:text-slate-400">Here at Jhonz, we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
             </div>
             <div className="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3">
-              <div>
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
-                  <svg className="h-5 w-5 text-primary-600 dark:text-primary-300 lg:h-6 lg:w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a1 1 0 001 1h12a1 1 0 001-1V5a1 1 0 000-2H4a1 1 0 00-1-1H3zm1 2v5h10V5H4zm11 8H4a1 1 0 100 2h11a1 1 0 100-2z" clipRule="evenodd"></path></svg>
+              {simpleCenteredFeatures.map((feature, index) => (
+                <div key={index} className="transform-gpu transition-transform duration-300 hover:scale-105">
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
+                    {feature.icon}
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold dark:text-white">{feature.title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400">{feature.description}</p>
                 </div>
-                <h3 className="mb-2 text-xl font-bold dark:text-white">Marketing</h3>
-                <p className="text-slate-500 dark:text-slate-400">Plan and execute campaigns that resonate with your audience and drive engagement.</p>
-              </div>
-              <div>
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
-                  <svg className="h-5 w-5 text-primary-600 dark:text-primary-300 lg:h-6 lg:w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3z" clipRule="evenodd"></path></svg>
-                </div>
-                <h3 className="mb-2 text-xl font-bold dark:text-white">Legal</h3>
-                <p className="text-slate-500 dark:text-slate-400">Manage legal documents and compliance with our secure and easy-to-use platform.</p>
-              </div>
-              <div>
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900 lg:h-12 lg:w-12">
-                  <svg className="h-5 w-5 text-primary-600 dark:text-primary-300 lg:h-6 lg:w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M6 6V5a1 1 0 011-1h2a1 1 0 011 1v1h2a1 1 0 011 1v3.586l2.293-2.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L9 10.586V7a1 1 0 011-1h2V5H7a1 1 0 01-1-1z" clipRule="evenodd"></path><path d="M5.293 13.293A1 1 0 016.707 12l4 4a1 1 0 01-1.414 1.414L5.293 13.293zM9 10a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path></svg>
-                </div>
-                <h3 className="mb-2 text-xl font-bold dark:text-white">Business</h3>
-                <p className="text-slate-500 dark:text-slate-400">Streamline your operations and scale your business with our integrated solutions.</p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -569,7 +580,7 @@ export default function FeatureSectionsClientComponent() {
               <p className="mt-4 text-lg leading-8 text-slate-400">A powerful feature section with a grid layout, perfect for showcasing key benefits.</p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+              <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:max-w-none lg:grid-cols-3">
                 <div className="flex flex-col">
                   <dt className="text-base font-semibold leading-7 text-white">
                     <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500">
@@ -684,7 +695,7 @@ export default function FeatureSectionsClientComponent() {
               <p className="mt-6 text-lg leading-8 text-slate-400">An interactive bento grid layout to showcase features in a modern and engaging way. Hover over the cards to see the effect.</p>
             </div>
             <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-5xl">
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                 <div className="rounded-2xl bg-slate-800/50 p-8 transition-transform duration-300 hover:scale-105 hover:bg-slate-800 lg:col-span-2">
                   <svg className="h-8 w-8 text-indigo-400" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
                   <h3 className="mt-4 text-xl font-semibold text-white">Collaborative Inbox</h3>
@@ -713,7 +724,7 @@ export default function FeatureSectionsClientComponent() {
               <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-400">Detail your product&apos;s features with text and accompanying images, alternating for visual interest.</p>
             </div>
             <div className="mt-16 space-y-16">
-              <div className="grid items-center gap-8 lg:grid-cols-2">
+              <div className="grid items-center gap-8 md:grid-cols-2">
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Intuitive Dashboard</h3>
                   <p className="mt-4 text-slate-600 dark:text-slate-400">Our dashboard is designed for ease of use. Manage all your projects, deployments, and settings from a single, intuitive interface. Get insights at a glance and take action quickly.</p>
@@ -722,7 +733,7 @@ export default function FeatureSectionsClientComponent() {
                   <Image className="w-full rounded-lg shadow-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/dashboard-mockup.svg" alt="Intuitive Dashboard" width={520} height={390} />
                 </div>
               </div>
-              <div className="grid items-center gap-8 lg:grid-cols-2">
+              <div className="grid items-center gap-8 md:grid-cols-2">
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Seamless Collaboration</h3>
                   <p className="mt-4 text-slate-600 dark:text-slate-400">Invite your team and collaborate in real-time. With shared environments and granular permissions, you can work together securely and efficiently, no matter where you are.</p>
@@ -740,7 +751,7 @@ export default function FeatureSectionsClientComponent() {
         Interactive Feature Tabs
       </h2>
       <p className="mt-4 text-slate-600 dark:text-slate-400">An interactive tab layout to elegantly display your products core features. Click on a feature to see relevant content and images.</p>
-      <CodePreview code={interactiveFeatureTabsCode}>
+      <CodePreview code={featureTabsCodeWithAnimation}>
         <section className="bg-white py-16 dark:bg-slate-900 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
@@ -764,7 +775,16 @@ export default function FeatureSectionsClientComponent() {
               </div>
               <div className="lg:col-span-2">
                 <div className="rounded-xl bg-slate-100 p-4 dark:bg-slate-800/50">
-                  <Image className="w-full rounded-lg" src={activeTab.image} alt={activeTab.title} width={600} height={400} key={activeTab.id} />
+                  <div key={activeTab.id} className="animate-fade-in">
+                    <Image
+                      className="w-full rounded-lg"
+                      src={activeTab.image}
+                      alt={activeTab.title}
+                      width={600}
+                      height={400}
+                      priority
+                    />
+                  </div>
                 </div>
               </div>
             </div>

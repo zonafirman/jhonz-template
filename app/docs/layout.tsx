@@ -16,7 +16,7 @@ export default function DocsLayout({
     <>
       <Navbar />
       <Sidebar />
-      <main className={isSectionsPage ? 'pl-72 pb-10 pt-24' : 'pl-72 pr-64 pb-10 pt-24'}>
+      <main className={`pb-10 pt-24 lg:pl-72 ${isSectionsPage ? 'px-4 sm:px-6 lg:px-8' : 'px-4 sm:px-6 lg:px-8 lg:pr-72'}`}>
         {children}
       </main>
     </>
