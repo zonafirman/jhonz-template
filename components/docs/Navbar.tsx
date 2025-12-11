@@ -72,7 +72,7 @@ export default function Navbar() {
 
         <div className="flex items-center space-x-4">
         <Link
-          href="https://github.com/your-repo"
+          href="https://github.com/zonafirman"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -80,13 +80,6 @@ export default function Navbar() {
         >
           <Github size={20} />
         </Link>
-        <button
-          aria-label="Toggle theme"
-          onClick={toggleTheme}
-          className="text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
-        >
-          {isDark ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
         <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
